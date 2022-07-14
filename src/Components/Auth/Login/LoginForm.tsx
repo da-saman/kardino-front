@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
+import styled from 'styled-components';
+import { Button, Checkbox, Form, Input, ConfigProvider, Row, Col } from 'antd';
 
-const LoginForm = () => {
+const LoginForm: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -14,10 +15,7 @@ const LoginForm = () => {
     <Form
       name='basic'
       labelCol={{
-        span: 8,
-      }}
-      wrapperCol={{
-        span: 16,
+        span: 24,
       }}
       initialValues={{
         remember: true,
@@ -26,53 +24,51 @@ const LoginForm = () => {
       onFinishFailed={onFinishFailed}
       autoComplete='off'
     >
-      <Input placeholder='نام کاربری' />
-      <Form.Item
-        labelAlign='right'
-        label='نام کاربری'
-        name='username'
-        rules={[
-          {
-            required: true,
-            message: '!لطفاً نام کاربری خود را وارد نمایید',
-          },
-        ]}
-      ></Form.Item>
+      <Row gutter={[16, 16]}>
+        <Col span={24}>
+          <Form.Item
+            label='نام کاربری'
+            name='username'
+            rules={[
+              {
+                required: true,
+                message: '!لطفاً نام کاربری خود را وارد نمایید',
+              },
+            ]}
+          >
+            <ConfigProvider direction='rtl'>
+              <Input placeholder='نام کاربری' />
+            </ConfigProvider>
+          </Form.Item>
+        </Col>
+        <Col span={24}>
+          <Form.Item
+            label='رمز عبور'
+            name='password'
+            rules={[
+              {
+                required: true,
+                message: '!لطفاً رمز عبور خود را وارد نمایید',
+              },
+            ]}
+          >
+            <ConfigProvider direction='rtl'>
+              <Input.Password placeholder='رمز عبور' />
+            </ConfigProvider>
+          </Form.Item>
+        </Col>
+        <Col span={24}>
+          <Form.Item name='remember' valuePropName='checked'>
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
 
-      <Input.Password placeholder='رمز عبور' />
-      <Form.Item
-        labelAlign='right'
-        label='رمز عبور'
-        name='password'
-        rules={[
-          {
-            required: true,
-            message: '!لطفاً رمز عبور خود را وارد نمایید',
-          },
-        ]}
-      ></Form.Item>
-
-      <Form.Item
-        name='remember'
-        valuePropName='checked'
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item
-        wrapperCol={{
-          offset: 8,
-          span: 16,
-        }}
-      >
-        <Button type='primary' htmlType='submit'>
-          Submit
-        </Button>
-      </Form.Item>
+          <Form.Item>
+            <Button type='primary' htmlType='submit' block>
+              Log in
+            </Button>
+          </Form.Item>
+        </Col>
+      </Row>
     </Form>
   );
 };

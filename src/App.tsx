@@ -1,11 +1,12 @@
-import React from 'react';
-import PetroImage from './assets/images/PetroImg01.webp';
 import { Col, Image, Row } from 'antd';
 
-import './App.css';
 import LoginPage from './Components/Auth/Login/LoginPage';
 
-function App() {
+import PetroImage from './assets/images/PetroImg01.webp';
+
+import './App.css';
+
+const App = () => {
   return (
     <>
       <Row className='h-100'>
@@ -28,6 +29,6 @@ function App() {
       </Row>
     </>
   );
-}
+};
 
 export default App;
