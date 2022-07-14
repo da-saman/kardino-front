@@ -1,57 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Col, Image, Row } from 'antd';
+
+import LoginPage from './Components/Auth/Login/LoginPage';
+
+import PetroImage from './assets/images/PetroImg01.webp';
+
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className='App-link'
-            href='https://reactjs.org/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className='App-link'
-            href='https://redux.js.org/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className='App-link'
-            href='https://redux-toolkit.js.org/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className='App-link'
-            href='https://react-redux.js.org/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <>
+      <Row className='h-100'>
+        <Col xs={0} lg={12} className='h-inherit'>
+          <Image
+            preview={false}
+            src={PetroImage}
+            alt='PetroImage'
+            width='100%'
+            height='100vh'
+          />
+        </Col>
+        <Col xs={24} lg={12} className='h-inherit'>
+          <Row className='h-inherit' justify='center' align='middle'>
+            <Col xs={20} sm={16} lg={12}>
+              <LoginPage />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </>
   );
-}
+};
 
 export default App;
