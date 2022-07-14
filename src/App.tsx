@@ -1,3 +1,4 @@
+import React from 'react';
 import { Col, Image, Row } from 'antd';
 
 import LoginPage from './Components/Auth/Login/LoginPage';
