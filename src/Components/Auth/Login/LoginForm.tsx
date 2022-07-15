@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Button, Checkbox, Form, Input, ConfigProvider, Row, Col } from 'antd';
 
-const LoginForm: React.FC = () => {
+const LoginForm: React.FC = styled(({ className }) => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -12,65 +12,96 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <Form
-      name='basic'
-      labelCol={{
-        span: 24,
-      }}
-      initialValues={{
-        remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete='off'
-    >
-      <Row gutter={[16, 16]}>
-        <Col span={24}>
-          <Form.Item
-            label='نام کاربری'
-            name='username'
-            rules={[
-              {
-                required: true,
-                message: '!لطفاً نام کاربری خود را وارد نمایید',
-              },
-            ]}
-          >
-            <ConfigProvider direction='rtl'>
-              <Input placeholder='نام کاربری' />
-            </ConfigProvider>
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item
-            label='رمز عبور'
-            name='password'
-            rules={[
-              {
-                required: true,
-                message: '!لطفاً رمز عبور خود را وارد نمایید',
-              },
-            ]}
-          >
-            <ConfigProvider direction='rtl'>
-              <Input.Password placeholder='رمز عبور' />
-            </ConfigProvider>
-          </Form.Item>
-        </Col>
-        <Col span={24}>
-          <Form.Item name='remember' valuePropName='checked'>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
+    <ConfigProvider direction='rtl'>
+      <Form
+        className={className}
+        name='basic'
+        labelCol={{
+          span: 24,
+        }}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete='off'
+      >
+        <Row gutter={[16, 16]}>
+          <Col span={24}>
+            <Input placeholder='نام کاربری' className='form__input' />
+            <Form.Item
+              className='form__label'
+              label='نام کاربری'
+              name='username'
+              rules={[
+                {
+                  required: true,
+                  message: '!لطفاً نام کاربری خود را وارد نمایید',
+                },
+              ]}
+            ></Form.Item>
+          </Col>
 
-          <Form.Item>
-            <Button type='primary' htmlType='submit' block>
-              Log in
-            </Button>
-          </Form.Item>
-        </Col>
-      </Row>
-    </Form>
+          <Col span={24}>
+            <Input
+              placeholder='رمز عبور'
+              className='form__input'
+              type='password'
+            />
+            <Form.Item
+              className='form__label'
+              label='  رمز عبور'
+              name='password'
+              rules={[
+                {
+                  required: true,
+                  message: '!لطفاً رمز عبور خود را وارد نمایید',
+                },
+              ]}
+            ></Form.Item>
+          </Col>
+
+          <Col span={24}>
+            <Form.Item name='remember' valuePropName='checked'>
+              <Checkbox>Remember me</Checkbox>
+            </Form.Item>
+
+            <Form.Item>
+              <Button type='primary' htmlType='submit' className='w-100'>
+                Log in
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form>
+    </ConfigProvider>
   );
-};
+})`
+  .form__input {
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+  }
+
+  .form__label {
+    position: absolute;
+    transition: all 0.3s;
+  }
+
+  .form__input:placeholder-shown + .form__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  .form__input:focus + .form__label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-2rem);
+  }
+
+  .form__input:focus::placeholder {
+    color: transparent;
+  }
+`;
 
 export default LoginForm;

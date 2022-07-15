@@ -92,10 +92,6 @@ code {
     background-color: red;
 }
 
-.w-100 {
-    width: 100%;
-}
-
 
 
 .h-100-percent {
@@ -169,6 +165,10 @@ code {
 
 .pl-1 {
   padding-left: 4px !important;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 @media (max-width: 991px) {
