@@ -10,4 +10,4 @@ enum InputType {
   DATE='date',
 }
 
-export default InputType
+export default InputType;

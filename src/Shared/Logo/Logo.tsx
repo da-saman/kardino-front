@@ -1,4 +1,7 @@
-import { Grid, Col, Image, Row, RowProps, Typography } from 'antd';
+import React from 'react';
+import {
+  Grid, Col, Image, Row, RowProps, Typography,
+} from 'antd';
 import LogoImage from '../../assets/images/logo.png';
 import { colors } from '../../constants/colors';
 
@@ -22,10 +25,11 @@ const Logo: React.FC<Props> = ({
   return (
     <Row
       align={align}
+      // eslint-disable-next-line no-nested-ternary
       justify={isResponsive ? (screens.lg ? 'start' : 'center') : 'start'}
     >
       <Col style={{ height: 26 }}>
-        <Image preview={false} src={LogoImage} alt='Logo' height={'2.5rem'} />
+        <Image preview={false} src={LogoImage} alt="Logo" height="2.5rem" />
       </Col>
       {/* <Col>
         <Text className='pl-1' strong>
@@ -34,6 +38,11 @@ const Logo: React.FC<Props> = ({
       </Col> */}
     </Row>
   );
+};
+
+Logo.defaultProps = {
+  isResponsive: true,
+  color: colors.BLACK,
 };
 
 export default Logo;
