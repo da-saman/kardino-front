@@ -1,6 +1,7 @@
 import React from 'react';
-import { Layout } from 'antd'
-
+import { Layout } from 'antd';
+import Header from '@components/header/index';
+import PageLayout from '@components/PageLayout';
 
 const Dashboard = () => {
   const dashboard = 'dashboard';
@@ -8,13 +9,8 @@ const Dashboard = () => {
     <Layout>
       <Header name="Name" />
       <Layout>
-        <Sidebar menuItems={adminMenu} />
         <PageLayout>
-          <Switch>
-            {mainRoutes.map((route, index) => (
-              <Route key={index} {...route} />
-            ))}
-          </Switch>
+          <p>Hello</p>
         </PageLayout>
       </Layout>
     </Layout>
@@ -22,7 +18,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
 
 // import { Fragment } from 'react';
 
