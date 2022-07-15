@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Button, Checkbox, Form, Input, ConfigProvider, Row, Col } from 'antd';
+import { InputType } from '../../../models';
 
 const LoginForm: React.FC = styled(({ className }) => {
   const onFinish = (values: any) => {
@@ -28,7 +29,11 @@ const LoginForm: React.FC = styled(({ className }) => {
       >
         <Row gutter={[16, 16]}>
           <Col span={24}>
-            <Input placeholder='نام کاربری' className='form__input' />
+            <Input
+              placeholder='نام کاربری'
+              className='form__input'
+              type={InputType.TEXT}
+            />
             <Form.Item
               className='form__label'
               label='نام کاربری'
@@ -46,7 +51,7 @@ const LoginForm: React.FC = styled(({ className }) => {
             <Input
               placeholder='رمز عبور'
               className='form__input'
-              type='password'
+              type={InputType.PASSWORD}
             />
             <Form.Item
               className='form__label'
