@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Layout } from 'antd';
-import { colors } from '../constants/colors';
+import { colors } from '../../constants/colors';
 
 const { Header: AntHeader } = Layout;
 

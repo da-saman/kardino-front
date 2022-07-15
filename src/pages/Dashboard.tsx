@@ -1,7 +1,9 @@
 import React from 'react';
 import { Layout } from 'antd';
-import Header from '@components/header/index';
+import Header from '@components/header';
 import PageLayout from '@components/PageLayout';
+
+// todo why nested layout
 
 const Dashboard = () => {
   const dashboard = 'dashboard';

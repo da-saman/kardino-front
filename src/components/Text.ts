@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Typography } from 'antd';
-import { colors } from '../../../constants/colors';
+import { colors } from '@constants/colors';
 
 const { Text: AntText } = Typography;
 

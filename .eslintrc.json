@@ -56,10 +56,13 @@
         "import/resolver": {
             "alias": {
                 "map": [
+                  ["@assets", "./src/assets"],
                   ["@components", "./src/components"],
+                  ["@constants", "./src/constants"],
+                  ["@hooks", "./src/hooks"],
+                  ["@models", "./src/models"],
                   ["@pages", "./src/pages"],
                   ["@store", "./src/store"],
-                  ["@assets", "./src/assets"],
                   ["@api/*", "./api/*"],
                   ["@base/*", "./*"]
                 ],

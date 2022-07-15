@@ -4,8 +4,8 @@ import {
 } from 'antd';
 
 import { useNavigate } from 'react-router-dom';
-import { LoginInput, LoginLabel } from '@components/Auth/Login/LoginForm/LoginForm.styles';
-import { InputType } from '../../../../models';
+import { LoginInput, LoginLabel } from '@components/LoginForm/LoginForm.styles';
+import { InputType } from '../../models';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();

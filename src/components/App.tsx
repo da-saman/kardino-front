@@ -1,10 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
-import LoginPage from './components/Auth/Login/LoginPage';
-import Dashboard from './components/dashboard/Dashboard';
-
-import './App.css';
+import LoginPage from '@pages/LoginPage';
+import Dashboard from '@pages/Dashboard';
 
 const App = () => (
   <Routes>

@@ -2,8 +2,8 @@ import React from 'react';
 import {
   Grid, Col, Image, Row, RowProps, Typography,
 } from 'antd';
-import LogoImage from '../../assets/images/logo.png';
-import { colors } from '../../constants/colors';
+import LogoImage from '@assets/images/logo.png';
+import { colors } from '@constants/colors';
 
 const { Text } = Typography;
 const { useBreakpoint } = Grid;
