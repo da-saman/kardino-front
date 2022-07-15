@@ -1,15 +1,16 @@
 import React from 'react';
-import { Col, Image, Row } from 'antd';
+// import { Col, Image, Row } from 'antd';
 
-import LoginPage from './components/Auth/Login/LoginPage';
+// import LoginPage from './components/Auth/Login/LoginPage';
 
-import PetroImage from './assets/images/PetroImg01.webp';
+// import PetroImage from './assets/images/PetroImg01.webp';
+import KDTable from '@components/kdTable/KDTable';
 
 import './App.css';
 
 const App = () => (
   <>
-    <Row className="h-100">
+    {/* <Row className="h-100">
       <Col xs={0} lg={12} className="h-inherit">
         <Image
           preview={false}
@@ -26,7 +27,8 @@ const App = () => (
           </Col>
         </Row>
       </Col>
-    </Row>
+    </Row> */}
+    <KDTable />
   </>
 );
 
