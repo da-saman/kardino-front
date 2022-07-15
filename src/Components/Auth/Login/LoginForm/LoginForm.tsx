@@ -34,12 +34,6 @@ const LoginForm: React.FC = () => {
             <LoginLabel
               label="نام کاربری"
               name="username"
-              rules={[
-                {
-                  required: true,
-                  message: '!لطفاً نام کاربری خود را وارد نمایید',
-                },
-              ]}
             />
           </Col>
 
@@ -48,12 +42,7 @@ const LoginForm: React.FC = () => {
             <LoginLabel
               label="  رمز عبور"
               name="password"
-              rules={[
-                {
-                  required: true,
-                  message: '!لطفاً رمز عبور خود را وارد نمایید',
-                },
-              ]}
+
             />
           </Col>
 
