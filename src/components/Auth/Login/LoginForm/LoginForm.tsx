@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Button, Checkbox, Form, ConfigProvider, Row, Col,
 } from 'antd';
-import { LoginInput, LoginLabel } from '@base/Components/Auth/Login/LoginForm/LoginForm.styles';
+import { LoginInput, LoginLabel } from '@components/Auth/Login/LoginForm/LoginForm.styles';
 import { InputType } from '../../../../models';
 
 const LoginForm: React.FC = () => {
