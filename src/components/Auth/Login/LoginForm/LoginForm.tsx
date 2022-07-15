@@ -2,10 +2,14 @@ import React from 'react';
 import {
   Button, Checkbox, Form, ConfigProvider, Row, Col,
 } from 'antd';
+
+import { useNavigate } from 'react-router-dom';
 import { LoginInput, LoginLabel } from '@components/Auth/Login/LoginForm/LoginForm.styles';
 import { InputType } from '../../../../models';
 
 const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const onFinish = (values: unknown) => {
     console.log('Success:', values);
   };
@@ -52,7 +56,14 @@ const LoginForm: React.FC = () => {
             </Form.Item>
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" className="w-100">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="w-100"
+                onClick={() => {
+                  navigate('/dashboard');
+                }}
+              >
                 Log in
               </Button>
             </Form.Item>
