@@ -31,8 +31,8 @@ const Logo: React.FC<Props> = ({
       <Col style={{ height: 26 }}>
         <Image preview={false} src={LogoImage} alt="Logo" height="2.5rem" />
       </Col>
-      {/* <Col>
-        <Text className='pl-1' strong>
+      {/* <Col color={color}>
+        <Text className="pl-1" strong>
           KARDINO
         </Text>
       </Col> */}
