@@ -1,6 +1,5 @@
-import type { LoginRequest } from '../../models/auth/loginRequest';
-import type { LoginResponse } from '../../models/auth/loginResponse';
-import { request as __request } from '../core/request';
+import type { LoginRequest, LoginResponse } from '@models/auth';
+import { request as __request } from '@api/core/request';
 
 export class AuthService {
   /**

@@ -1,6 +1,3 @@
-/* istanbul ignore file */
-/* tslint:disable */
-/* eslint-disable */
 import type { ApiRequestOptions } from './ApiRequestOptions';
 
 type Resolver<T> = (options: ApiRequestOptions) => Promise<T>;
@@ -17,11 +14,11 @@ type Config = {
 }
 
 export const OpenAPI: Config = {
-    BASE: 'https://nklxqf2el0.execute-api.eu-central-1.amazonaws.com',
-    VERSION: '1.0.0',
-    WITH_CREDENTIALS: false,
-    TOKEN: undefined,
-    USERNAME: undefined,
-    PASSWORD: undefined,
-    HEADERS: undefined,
+  BASE: 'https://nklxqf2el0.execute-api.eu-central-1.amazonaws.com',
+  VERSION: '1.0.0',
+  WITH_CREDENTIALS: false,
+  TOKEN: undefined,
+  USERNAME: undefined,
+  PASSWORD: undefined,
+  HEADERS: undefined,
 };

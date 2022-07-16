@@ -64,7 +64,8 @@
                   ["@models", "./src/models"],
                   ["@pages", "./src/pages"],
                   ["@store", "./src/store"],
-                  ["@api/*", "./src/api/*"],
+                  ["@api", "./src/api"],
+                  ["@utils","./src/utils"],
                   ["@base/*", "./*"]
                 ],
                 "extensions": [".ts", ".js", ".jsx",".tsx", ".json"]
