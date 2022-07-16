@@ -18,42 +18,42 @@ const adminMenu: MenuItem[] = [
     items: [
       {
         title: 'Advance info',
-        path: '/advance-info',
+        path: 'advance-info',
         key: 'sub1',
       },
       {
         title: 'Arrivals',
-        path: '/arrivals',
+        path: 'arrivals',
         key: 'sub2',
       },
       {
         title: 'Checking area',
-        path: '/checking-area',
+        path: 'checking-area',
         key: 'sub3',
       },
       {
         title: 'Damaged area',
-        path: '/damaged-area',
+        path: 'damaged-area',
         key: 'sub4',
       },
       {
         title: 'Repair area',
-        path: '/repair-area',
+        path: 'repair-area',
         key: 'sub5',
       },
       {
         title: 'Washing area',
-        path: '/washing-area',
+        path: 'washing-area',
         key: 'sub6',
       },
       {
         title: 'Healthy area',
-        path: '/healthy-area',
+        path: 'healthy-area',
         key: 'sub7',
       },
       {
         title: 'Released',
-        path: '/released',
+        path: 'released',
         key: 'sub8',
       },
     ],
@@ -62,14 +62,14 @@ const adminMenu: MenuItem[] = [
     title: 'Users',
     key: 'item1',
     icon: <UserOutlined />,
-    path: '/users',
+    path: 'users',
     items: [],
   },
   {
     title: 'Companies',
     key: 'item2',
     icon: <GoldOutlined />,
-    path: '/companies',
+    path: 'companies',
     items: [],
   },
   {
@@ -88,7 +88,7 @@ const adminMenu: MenuItem[] = [
     title: 'ISO codes',
     key: 'item6',
     icon: <CodeOutlined />,
-    path: '/iso-codes',
+    path: 'iso-codes',
     items: [],
   },
 ];

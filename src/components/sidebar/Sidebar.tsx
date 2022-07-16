@@ -18,7 +18,6 @@ const Sidebar: React.FC<Props> = ({ menuItems }) => (
     width={defaultWidth}
   >
     <SidebarMenu items={menuItems} />
-
   </StyledSidebar>
 );
 

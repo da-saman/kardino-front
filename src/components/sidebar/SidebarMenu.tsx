@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import MenuItem from '@components/navigation/MenuItem';
 import SubMenu from '@components/navigation/SubMenu';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MenuItem as MenuItemType } from '@models/index';
 
 interface Props {
@@ -18,9 +18,8 @@ const SidebarMenu: React.FC<Props> = ({ items }) => (
             {item.items.map((it) => (
               <MenuItem key={it.key}>
                 {it.path
-                  ? <NavLink to={it.path}>{it.title}</NavLink>
+                  ? <Link to={it.path}>{it.title}</Link>
                   : it.title}
-
               </MenuItem>
             ))}
           </SubMenu>
@@ -28,7 +27,7 @@ const SidebarMenu: React.FC<Props> = ({ items }) => (
       }
       return (
         <MenuItem key={item.key} icon={item.icon}>
-          {item.path ? <NavLink to={item.path}>{item.title}</NavLink> : item.title}
+          {item.path ? <Link to={item.path}>{item.title}</Link> : item.title}
         </MenuItem>
       );
     })}
