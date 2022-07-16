@@ -5,13 +5,14 @@ import {
 
 import { useNavigate } from 'react-router-dom';
 import { LoginInput, LoginLabel } from '@components/LoginForm/LoginForm.styles';
-import { InputType } from '../../models';
+import InputType from '@models/InputType';
+import { loginRequest } from '../../api/auth/requests';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
 
   const onFinish = (values: unknown) => {
-    console.log('Success:', values);
+    loginRequest({ email: 'admin@devolon.fi', password: 'SecretPassword' });
   };
 
   const onFinishFailed = (errorInfo: unknown) => {
@@ -35,24 +36,17 @@ const LoginForm: React.FC = () => {
         <Row gutter={[16, 16]}>
           <Col span={24}>
             <LoginInput placeholder="نام کاربری" type={InputType.TEXT} />
-            <LoginLabel
-              label="نام کاربری"
-              name="username"
-            />
           </Col>
 
           <Col span={24}>
             <LoginInput placeholder="رمز عبور" type={InputType.PASSWORD} />
-            <LoginLabel
-              label="  رمز عبور"
-              name="password"
-
-            />
           </Col>
 
           <Col span={24}>
             <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox>
+                من را به خاطر بسپار
+              </Checkbox>
             </Form.Item>
 
             <Form.Item>
@@ -60,11 +54,8 @@ const LoginForm: React.FC = () => {
                 type="primary"
                 htmlType="submit"
                 className="w-100"
-                onClick={() => {
-                  navigate('/dashboard');
-                }}
               >
-                Log in
+                ورود
               </Button>
             </Form.Item>
           </Col>

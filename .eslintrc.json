@@ -44,7 +44,8 @@
           "import/prefer-default-export": "off",
           "no-shadow": "off",
           "@typescript-eslint/no-shadow": ["error"],
-          "linebreak-style": "off"
+          "linebreak-style": "off",
+          "max-len": ["error", { "code": 120 }]
     },
     "settings": {
         "import/parsers": {
@@ -63,7 +64,7 @@
                   ["@models", "./src/models"],
                   ["@pages", "./src/pages"],
                   ["@store", "./src/store"],
-                  ["@api/*", "./api/*"],
+                  ["@api/*", "./src/api/*"],
                   ["@base/*", "./*"]
                 ],
                 "extensions": [".ts", ".js", ".jsx",".tsx", ".json"]
