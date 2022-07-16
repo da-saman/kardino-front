@@ -10,6 +10,7 @@
         "@pages/*": ["./pages/*"],
         "@store/*":["./store/*"],
         "@api/*": ["./api/*"],
+        "@utils/*":["./utils/*"],
         "@base/*": ["./*"]
       }
     }
