@@ -1,4 +1,4 @@
-enum InputType {
+export enum InputType {
   TEXT = 'text',
   TEXTAREA = 'textarea',
   PASSWORD = 'password',
@@ -9,5 +9,3 @@ enum InputType {
   RADIO='radio',
   DATE='date',
 }
-
-export default InputType;

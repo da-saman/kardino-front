@@ -2,64 +2,75 @@ import React from 'react';
 import {
   Button, Checkbox, Form, ConfigProvider, Row, Col,
 } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { InputType } from '@constants/InputType';
+import { LoginRequest } from '@models/auth';
+import loginSchema from '@utils/schemas/loginSchema';
+import Input from '@components/Input';
 
-import { useNavigate } from 'react-router-dom';
-import { LoginInput, LoginLabel } from '@components/LoginForm/LoginForm.styles';
-import InputType from '@models/InputType';
-import { loginRequest } from '../../api/auth/requests';
+interface Props {
+  onSubmit: SubmitHandler<LoginRequest>
+  isSubmitting: boolean
+}
 
-const LoginForm: React.FC = () => {
-  const navigate = useNavigate();
-
-  const onFinish = (values: unknown) => {
-    loginRequest({ email: 'admin@devolon.fi', password: 'SecretPassword' });
-  };
-
-  const onFinishFailed = (errorInfo: unknown) => {
-    console.log('Failed:', errorInfo);
-  };
+const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
+  const {
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginRequest>({ resolver: yupResolver(loginSchema) });
 
   return (
     <ConfigProvider direction="rtl">
       <Form
-        name="basic"
+        name="login"
         labelCol={{
           span: 24,
         }}
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={handleSubmit(onSubmit)}
         autoComplete="off"
       >
-        <Row gutter={[16, 16]}>
-          <Col span={24}>
-            <LoginInput placeholder="نام کاربری" type={InputType.TEXT} />
-          </Col>
+        <Input
+          errorClassName="ant-form-item-has-error mb-1"
+          containerClassName="mb-3"
+          control={control as any}
+          name="email"
+          placeholder="Email"
+          Icon={UserOutlined}
+          type={InputType.EMAIL}
+          error={errors.email?.message}
+        />
+        <Input
+          errorClassName="ant-form-item-has-error mb-1"
+          control={control as any}
+          name="password"
+          placeholder="Password"
+          Icon={LockOutlined}
+          type={InputType.PASSWORD}
+          error={errors.password?.message}
+        />
 
-          <Col span={24}>
-            <LoginInput placeholder="رمز عبور" type={InputType.PASSWORD} />
-          </Col>
+        <Form.Item name="remember" valuePropName="checked">
+          <Checkbox>
+            من را به خاطر بسپار
+          </Checkbox>
+        </Form.Item>
 
-          <Col span={24}>
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>
-                من را به خاطر بسپار
-              </Checkbox>
-            </Form.Item>
-
-            <Form.Item>
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="w-100"
-              >
-                ورود
-              </Button>
-            </Form.Item>
-          </Col>
-        </Row>
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="w-100"
+            loading={isSubmitting}
+          >
+            ورود
+          </Button>
+        </Form.Item>
       </Form>
     </ConfigProvider>
   );

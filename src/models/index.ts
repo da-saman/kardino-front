@@ -1,1 +1,1 @@
-export { default as InputType } from './InputType';
+export type { MappedOption } from './MappedOption';
