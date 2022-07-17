@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from 'antd';
+import { Layout, Col, Row } from 'antd';
 import Header from '@components/header';
 import PageLayout from '@components/PageLayout';
 import Sidebar from '@components/sidebar';
@@ -8,17 +8,21 @@ import { Outlet } from 'react-router-dom';
 
 // todo why nested layout
 
-const Dashboard = () => (
+const DashboardPage = () => (
+
   <Layout>
     <Header name='Name' />
     <Layout>
       <PageLayout>
-        <p>Sould Be here</p>
-        <Outlet />
+        <Row className='h-100'>
+          <Col xs={0} lg={6} className='h-inherit'>
+            <Outlet />
+          </Col>
+        </Row>
       </PageLayout>
       <Sidebar menuItems={adminMenu} />
     </Layout>
   </Layout>
 );
 
-export default Dashboard;
+export default DashboardPage;
