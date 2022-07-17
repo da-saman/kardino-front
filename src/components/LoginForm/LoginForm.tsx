@@ -19,8 +19,17 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
   const {
     handleSubmit,
     control,
-    formState: { errors },
-  } = useForm<LoginRequest>({ resolver: yupResolver(loginSchema) });
+    formState: { errors, isValid, submitCount },
+  } = useForm<LoginRequest>({
+    resolver: yupResolver(loginSchema),
+    mode: 'all',
+    delayError: 500,
+    shouldFocusError: true,
+    shouldUseNativeValidation: false,
+    criteriaMode: 'firstError',
+    reValidateMode: 'onChange',
+
+  });
 
   return (
     <ConfigProvider direction='rtl'>
@@ -62,11 +71,16 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         </Form.Item>
 
         <Form.Item>
+          <p>
+            {submitCount }
+            to captcha
+          </p>
           <Button
             type='primary'
             htmlType='submit'
             className='w-100'
             loading={isSubmitting}
+            disabled={!isValid}
           >
             ورود
           </Button>
