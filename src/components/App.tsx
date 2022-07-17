@@ -5,12 +5,12 @@ import Dashboard from '@pages/Dashboard';
 
 const App = () => (
   <Routes>
-    <Route path="/login" element={<LoginPage />} />
-    <Route path="/dashboard/*" element={<Dashboard />}>
-      <Route path="users" element={<p>user</p>} />
-      <Route path="companies" element={<p>companies</p>} />
+    <Route path='/login' element={<LoginPage />} />
+    <Route path='/dashboard/*' element={<Dashboard />}>
+      <Route path='users' element={<p>user</p>} />
+      <Route path='companies' element={<p>companies</p>} />
     </Route>
-    <Route path="*" element={<Navigate to="login" />} />
+    <Route path='*' element={<Navigate to='login' />} />
   </Routes>
 );
 

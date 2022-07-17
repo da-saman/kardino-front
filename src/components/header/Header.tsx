@@ -14,7 +14,7 @@ const Header: React.FC<Props> = ({ name }) => {
   const navigate = useNavigate();
   return (
     <StyledHeader>
-      <Row justify="space-between" align="middle">
+      <Row justify='space-between' align='middle'>
         <Logo color={colors.WHITE} />
         <HeaderAccount
           name={name}

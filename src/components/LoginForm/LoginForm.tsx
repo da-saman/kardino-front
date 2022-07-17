@@ -23,9 +23,9 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
   } = useForm<LoginRequest>({ resolver: yupResolver(loginSchema) });
 
   return (
-    <ConfigProvider direction="rtl">
+    <ConfigProvider direction='rtl'>
       <Form
-        name="login"
+        name='login'
         labelCol={{
           span: 24,
         }}
@@ -33,29 +33,29 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           remember: true,
         }}
         onFinish={handleSubmit(onSubmit)}
-        autoComplete="off"
+        autoComplete='off'
       >
         <Input
-          errorClassName="ant-form-item-has-error mb-1"
-          containerClassName="mb-3"
+          errorClassName='ant-form-item-has-error mb-1'
+          containerClassName='mb-3'
           control={control as any}
-          name="email"
-          placeholder="Email"
+          name='email'
+          placeholder='Email'
           Icon={UserOutlined}
           type={InputType.EMAIL}
           error={errors.email?.message}
         />
         <Input
-          errorClassName="ant-form-item-has-error mb-1"
+          errorClassName='ant-form-item-has-error mb-1'
           control={control as any}
-          name="password"
-          placeholder="Password"
+          name='password'
+          placeholder='Password'
           Icon={LockOutlined}
           type={InputType.PASSWORD}
           error={errors.password?.message}
         />
 
-        <Form.Item name="remember" valuePropName="checked">
+        <Form.Item name='remember' valuePropName='checked'>
           <Checkbox>
             من را به خاطر بسپار
           </Checkbox>
@@ -63,9 +63,9 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
 
         <Form.Item>
           <Button
-            type="primary"
-            htmlType="submit"
-            className="w-100"
+            type='primary'
+            htmlType='submit'
+            className='w-100'
             loading={isSubmitting}
           >
             ورود

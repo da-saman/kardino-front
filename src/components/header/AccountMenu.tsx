@@ -7,7 +7,7 @@ interface Props {
 
 const AccountMenu: React.FC<Props> = ({ onLogout }) => (
   <Menu>
-    <Menu.Item key="logout" onClick={onLogout}>
+    <Menu.Item key='logout' onClick={onLogout}>
       Log out
     </Menu.Item>
   </Menu>

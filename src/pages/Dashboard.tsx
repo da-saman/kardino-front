@@ -10,7 +10,7 @@ import { Outlet } from 'react-router-dom';
 
 const Dashboard = () => (
   <Layout>
-    <Header name="Name" />
+    <Header name='Name' />
     <Layout>
       <PageLayout>
         <p>Sould Be here</p>

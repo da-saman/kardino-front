@@ -45,7 +45,8 @@
           "no-shadow": "off",
           "@typescript-eslint/no-shadow": ["error"],
           "linebreak-style": "off",
-          "max-len": ["error", { "code": 120 }]
+          "max-len": ["error", { "code": 120 }],
+          "jsx-quotes":["error","prefer-single"]
     },
     "settings": {
         "import/parsers": {

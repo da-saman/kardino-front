@@ -9,12 +9,12 @@ interface Props {
 }
 
 const HeaderAccount: React.FC<Props> = ({ name, onLogout }) => (
-  <Row justify="center" align="middle">
+  <Row justify='center' align='middle'>
     <Avatar icon={<UserOutlined />} />
-    <Dropdown arrow overlay={<AccountMenu onLogout={onLogout} />} className="ml-2" trigger={['click']}>
-      <div role="button" className="pointer white ant-dropdown-link">
+    <Dropdown arrow overlay={<AccountMenu onLogout={onLogout} />} className='ml-2' trigger={['click']}>
+      <div role='button' className='pointer white ant-dropdown-link'>
         {name}
-        <DownOutlined className="ml-3" />
+        <DownOutlined className='ml-3' />
       </div>
     </Dropdown>
   </Row>

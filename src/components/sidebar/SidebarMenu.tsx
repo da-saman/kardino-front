@@ -10,7 +10,7 @@ interface Props {
 }
 
 const SidebarMenu: React.FC<Props> = ({ items }) => (
-  <Menu className="h-100-percent" mode="inline">
+  <Menu className='h-100-percent' mode='inline'>
     {items.map((item) => {
       if (item.items && item.items.length > 0) {
         return (

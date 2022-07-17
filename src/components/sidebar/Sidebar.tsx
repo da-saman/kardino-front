@@ -11,8 +11,8 @@ interface Props {
 
 const Sidebar: React.FC<Props> = ({ menuItems }) => (
   <StyledSidebar
-    theme="light"
-    breakpoint="lg"
+    theme='light'
+    breakpoint='lg'
     collapsible
     trigger={null}
     width={defaultWidth}

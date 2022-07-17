@@ -29,7 +29,7 @@ const Logo: React.FC<Props> = ({
       justify={isResponsive ? (screens.lg ? 'start' : 'center') : 'start'}
     >
       <Col style={{ height: 26 }}>
-        <Image preview={false} src={LogoImage} alt="Logo" height="2.5rem" />
+        <Image preview={false} src={LogoImage} alt='Logo' height='2.5rem' />
       </Col>
       {/* <Col color={color}>
         <Text className="pl-1" strong>
