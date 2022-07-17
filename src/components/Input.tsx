@@ -2,13 +2,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FunctionComponent, useState } from 'react';
 import {
-  Form, Input as AntInput, Select, Radio, DatePicker,
+  Form, Input as AntInput, Select, Radio, ConfigProvider,
 } from 'antd';
+import { DatePicker, Calendar, JalaliLocaleListener } from 'antd-jalali';
+
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Control, Controller } from 'react-hook-form';
+import locale from 'antd/es/date-picker/locale/fa_IR';
+import faIR from 'antd/es/locale/fa_IR';
+import moment from 'moment';
 import { MappedOption } from '../models';
 import { InputType } from '../constants/InputType';
 import ErrorMessage from './FormErrorMessage';
+import 'moment/locale/fa';
 
 interface Props {
   control: Control<any>
@@ -93,7 +99,17 @@ const Input: React.FC<Props> = ({
               );
             case InputType.DATE: {
               return (
-                <DatePicker disabled={disabled} {...field} onChange={onChange} data-testid={name} className='w-100' />
+                <ConfigProvider locale={faIR}>
+                  <DatePicker
+                    disabled={disabled}
+                    {...field}
+                    onChange={onChange}
+                    data-testid={name}
+                    className='w-100'
+                    locale={locale}
+                    defaultValue={moment()}
+                  />
+                </ConfigProvider>
               );
             }
             case InputType.TEXTAREA:

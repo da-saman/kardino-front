@@ -35,6 +35,17 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         onFinish={handleSubmit(onSubmit)}
         autoComplete='off'
       >
+
+        <Input
+          errorClassName='ant-form-item-has-error mb-1'
+          containerClassName='mb-3'
+          control={control as any}
+          name='date'
+          placeholder='Date'
+          Icon={UserOutlined}
+          type={InputType.DATE}
+          error={errors.email?.message}
+        />
         <Input
           errorClassName='ant-form-item-has-error mb-1'
           containerClassName='mb-3'
