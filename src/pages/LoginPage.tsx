@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Typography, Row, Col, Image,
 } from 'antd';
-import LoginForm from '@components/LoginForm';
+import LoginForm from '@components/loginForm';
 import Logo from '@components/Logo';
 import PetroImage from '@assets/images/PetroImg01.webp';
 import { SubmitHandler } from 'react-hook-form';

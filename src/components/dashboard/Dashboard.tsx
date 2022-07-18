@@ -1,6 +1,5 @@
 import React from 'react';
-import { ConfigProvider, Row, Col } from 'antd';
-
+import { ConfigProvider } from 'antd';
 import { DatePicker as DatePickerJalali, JalaliLocaleListener } from 'antd-jalali';
 import faIR from 'antd/lib/locale/fa_IR';
 

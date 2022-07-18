@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { InputType } from '@constants/InputType';
 import { LoginRequest } from '@models/auth';
 import loginSchema from '@utils/schemas/loginSchema';
-import Input from '@components/Input';
+import Input from '@components/input';
 
 interface Props {
   onSubmit: SubmitHandler<LoginRequest>

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import {
+  Routes, Route, Navigate,
+} from 'react-router-dom';
 import LoginPage from '@pages/LoginPage';
 import DashboardPage from '@pages/DashboardPage';
-import Dashboard from './dashboard/Dashboard';
+import Dashboard from '@components/dashboard';
 
 const App = () => (
   <Routes>

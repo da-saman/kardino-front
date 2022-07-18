@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sidebar as StyledSidebar } from '@components/sidebar/Sidebar.style';
 import { MenuItem } from '@models/index';
-import SidebarMenu from './SidebarMenu';
+import SidebarMenu from '@components/sidebar/SidebarMenu';
 
 const defaultWidth = 208;
 

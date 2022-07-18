@@ -4,7 +4,7 @@ import { Row } from 'antd';
 import { Header as StyledHeader } from '@components/header/Header.style';
 import { colors } from '@constants/colors';
 import Logo from '@components/Logo';
-import HeaderAccount from './HeaderAccount';
+import HeaderAccount from '@components/header/HeaderAccount';
 
 interface Props {
   name: string

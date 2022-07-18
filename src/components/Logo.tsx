@@ -25,8 +25,7 @@ const Logo: React.FC<Props> = ({
   return (
     <Row
       align={align}
-      // eslint-disable-next-line no-nested-ternary
-      justify={isResponsive ? (screens.lg ? 'start' : 'center') : 'start'}
+      justify={!isResponsive ? 'start' : 'center'}
     >
       <Col style={{ height: 26 }}>
         <Image preview={false} src={LogoImage} alt='Logo' height='2.5rem' />
