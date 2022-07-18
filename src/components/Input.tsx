@@ -50,7 +50,7 @@ const Input: React.FC<Props> = ({
       label={label}
       className={error ? errorClassName : containerClassName}
       validateStatus={error ? validateStatus : 'success'}
-      hasFeedback
+      hasFeedback={!!error}
       help={error}
     >
       <Controller
