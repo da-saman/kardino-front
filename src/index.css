@@ -38,17 +38,13 @@ code {
     src: url(./assets/fonts/Roboto-Bold.ttf) format('truetype');
 }
 
-.mb-1 {
-    margin-bottom: 4px !important;
-}
+
 
 .mb-2 {
     margin-bottom: 8px !important;
 }
 
-.mb-3 {
-    margin-bottom: 16px !important;
-}
+
 
 .mb-4 {
     margin-bottom: 24px !important;
@@ -156,6 +152,14 @@ code {
 
 .h-inherit {
   height: inherit;
+}
+
+.mb-1 {
+    margin-bottom: 4px !important;
+}
+
+.mb-3 {
+    margin-bottom: 16px !important;
 }
 
 .mv-6 {

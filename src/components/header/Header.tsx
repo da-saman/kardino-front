@@ -2,8 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Row } from 'antd';
 import { Header as StyledHeader } from '@components/header/Header.style';
-import Logo from '../Logo';
-import { colors } from '../../constants/colors';
+import { colors } from '@constants/colors';
+import Logo from '@components/Logo';
 import HeaderAccount from './HeaderAccount';
 
 interface Props {
