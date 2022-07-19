@@ -17,8 +17,6 @@ interface Props {
   error?: string | false
   Icon?: FunctionComponent
   type?: InputType
-  containerClassName?: string
-  errorClassName?: string
   label?: string
   options?: MappedOption[]
   changeHandler?: () => void
@@ -33,8 +31,6 @@ const Input: React.FC<Props> = ({
   placeholder,
   error,
   Icon,
-  containerClassName = '',
-  errorClassName = '',
   label,
   options = [],
   changeHandler = () => undefined,
@@ -42,15 +38,11 @@ const Input: React.FC<Props> = ({
   disabled = false,
 }) => {
   const [isFocused, setFocus] = useState(false);
-  // TODO refactor
-  const validateStatus = error === 'لطفا ایمیل را به درستی وارد نمایید' ? 'warning' : 'error';
-  //
+
   return (
     <Item
       label={label}
-      className={error ? errorClassName : containerClassName}
-      validateStatus={error ? validateStatus : 'success'}
-      hasFeedback={!!error}
+      validateStatus={error ? 'error' : 'success'}
       help={error}
     >
       <Controller
@@ -63,7 +55,6 @@ const Input: React.FC<Props> = ({
                   data-testid={name}
                   mode='multiple'
                   allowClear
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   onChange={onChange}
@@ -77,7 +68,6 @@ const Input: React.FC<Props> = ({
               return (
                 <Select
                   data-testid={name}
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   onChange={onChange}
@@ -95,7 +85,6 @@ const Input: React.FC<Props> = ({
                   {...field}
                   onChange={onChange}
                   data-testid={name}
-                  className='w-100'
                 >
                   {options.map((opt) => <Radio value={opt.value}>{opt.label}</Radio>)}
                 </Radio.Group>
@@ -111,7 +100,6 @@ const Input: React.FC<Props> = ({
               return (
                 <AntInput.Password
                   data-testid={name}
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   disabled={disabled}
