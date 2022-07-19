@@ -2,13 +2,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FunctionComponent, useState } from 'react';
 import {
-  Form, Input as AntInput, Select, Radio, DatePicker,
+  Input as AntInput, Select, Radio, DatePicker,
 } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Control, Controller } from 'react-hook-form';
-import { MappedOption } from '../models';
-import { InputType } from '../constants/InputType';
-import ErrorMessage from './FormErrorMessage';
+import { InputType } from '@constants/InputType';
+import { ItemStyled as Item } from '@components/input/Item.style';
+import { MappedOption } from '@models/MappedOption';
 
 interface Props {
   control: Control<any>
@@ -42,8 +42,17 @@ const Input: React.FC<Props> = ({
   disabled = false,
 }) => {
   const [isFocused, setFocus] = useState(false);
+  // TODO refactor
+  const validateStatus = error === 'لطفا ایمیل را به درستی وارد نمایید' ? 'warning' : 'error';
+  //
   return (
-    <Form.Item label={label} className={error ? errorClassName : containerClassName}>
+    <Item
+      label={label}
+      className={error ? errorClassName : containerClassName}
+      validateStatus={error ? validateStatus : 'success'}
+      hasFeedback={!!error}
+      help={error}
+    >
       <Controller
         render={({ field }) => {
           const { onChange } = field;
@@ -132,8 +141,7 @@ const Input: React.FC<Props> = ({
         name={name}
         control={control}
       />
-      {error && <ErrorMessage message={error} />}
-    </Form.Item>
+    </Item>
   );
 };
 

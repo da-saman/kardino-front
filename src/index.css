@@ -1,3 +1,6 @@
+@import 'antd/dist/antd.css';
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,11 +11,12 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
 /* 
-@import '~antd/dist/antd.css';
 
 @font-face {
     font-family: 'Roboto';
@@ -38,17 +42,13 @@ code {
     src: url(./assets/fonts/Roboto-Bold.ttf) format('truetype');
 }
 
-.mb-1 {
-    margin-bottom: 4px !important;
-}
+
 
 .mb-2 {
     margin-bottom: 8px !important;
 }
 
-.mb-3 {
-    margin-bottom: 16px !important;
-}
+
 
 .mb-4 {
     margin-bottom: 24px !important;
@@ -66,13 +66,7 @@ code {
     margin-left: 4px !important;
 }
 
-.ml-2 {
-    margin-left: 8px !important;
-}
 
-.ml-3 {
-    margin-left: 16px !important;
-}
 
 .mt-3 {
     margin-top: 16px !important;
@@ -94,9 +88,7 @@ code {
 
 
 
-.h-100-percent {
-    height: 100%;
-}
+
 
 .justify-content-center {
     justify-content: center;
@@ -124,13 +116,9 @@ code {
     text-align: right !important;
 }
 
-.white {
-    color: #FFFFFF;
-}
 
-.pointer {
-    cursor: pointer;
-}
+
+
 
 .ant-image {
     display: block !important;
@@ -154,10 +142,29 @@ code {
   height: 100vh;
 }
 
+.h-100-percent {
+    height: 100%;
+}
+
 .h-inherit {
   height: inherit;
 }
 
+.mb-1 {
+    margin-bottom: 4px !important;
+}
+
+.mb-3 {
+    margin-bottom: 16px !important;
+}
+
+.ml-2 {
+    margin-left: 8px !important;
+}
+
+.ml-3 {
+    margin-left: 16px !important;
+}
 .mv-6 {
   margin-top: 40px !important;
   margin-bottom: 40px !important;
@@ -167,8 +174,16 @@ code {
   padding-left: 4px !important;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .w-100 {
   width: 100%;
+}
+
+.white {
+    color: #FFFFFF;
 }
 
 @media (max-width: 991px) {
