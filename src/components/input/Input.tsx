@@ -42,16 +42,12 @@ const Input: React.FC<Props> = ({
   disabled = false,
 }) => {
   const [isFocused, setFocus] = useState(false);
-  // TODO refactor
-  const validateStatus = error === 'لطفا ایمیل را به درستی وارد نمایید' ? 'warning' : 'error';
-  //
   return (
     <Item
       label={label}
       className={error ? errorClassName : containerClassName}
-      validateStatus={error ? validateStatus : 'success'}
-      hasFeedback={!!error}
-      help={error}
+      validateStatus={error ? 'error' : 'success'}
+      help={error || ' '}
     >
       <Controller
         render={({ field }) => {
@@ -63,7 +59,6 @@ const Input: React.FC<Props> = ({
                   data-testid={name}
                   mode='multiple'
                   allowClear
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   onChange={onChange}
@@ -77,7 +72,6 @@ const Input: React.FC<Props> = ({
               return (
                 <Select
                   data-testid={name}
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   onChange={onChange}
@@ -95,23 +89,21 @@ const Input: React.FC<Props> = ({
                   {...field}
                   onChange={onChange}
                   data-testid={name}
-                  className='w-100'
                 >
                   {options.map((opt) => <Radio value={opt.value}>{opt.label}</Radio>)}
                 </Radio.Group>
               );
             case InputType.DATE: {
               return (
-                <DatePicker disabled={disabled} {...field} onChange={onChange} data-testid={name} className='w-100' />
+                <DatePicker disabled={disabled} {...field} onChange={onChange} data-testid={name} />
               );
             }
             case InputType.TEXTAREA:
-              return <AntInput.TextArea data-testid={name} className='w-100' placeholder={placeholder} {...field} />;
+              return <AntInput.TextArea data-testid={name} placeholder={placeholder} {...field} />;
             case InputType.PASSWORD:
               return (
                 <AntInput.Password
                   data-testid={name}
-                  className='w-100'
                   placeholder={placeholder}
                   {...field}
                   disabled={disabled}
