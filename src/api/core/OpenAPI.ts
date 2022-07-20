@@ -14,7 +14,7 @@ type Config = {
 }
 
 export const OpenAPI: Config = {
-  BASE: 'https://nklxqf2el0.execute-api.eu-central-1.amazonaws.com',
+  BASE: 'http://185.105.239.77:90',
   VERSION: '1.0.0',
   WITH_CREDENTIALS: false,
   TOKEN: undefined,

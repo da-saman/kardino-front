@@ -14,7 +14,7 @@ export class AuthService {
   ): Promise<LoginResponse> {
     const result = await __request({
       method: 'POST',
-      path: '/api/admin/auth/login',
+      path: '/api/Login',
       body: requestBody,
       errors: {
         401: 'Unauthorized, the user is unauthenticated.',

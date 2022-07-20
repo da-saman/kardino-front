@@ -49,10 +49,10 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           errorClassName='ant-form-item-has-error mb-1'
           containerClassName='mb-3'
           control={control as any}
-          name='username'
+          name='userName'
           placeholder='Username'
           Icon={UserOutlined}
-          error={errors.username?.message}
+          error={errors.userName?.message}
         />
 
         <Input
