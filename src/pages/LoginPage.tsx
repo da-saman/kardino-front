@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import LoginForm from '@components/loginForm';
 import Logo from '@components/Logo';
-import PetroImage from '@assets/images/PetroImg01.webp';
+import personnelImg from '@assets/images/HassanHoseini.webp';
 import { SubmitHandler } from 'react-hook-form';
 import { LoginRequest } from '@models/auth';
 import { loginRequest } from '@api/auth/requests';
@@ -23,22 +23,24 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Row justify='center' align='middle'>
+    <Row justify='center' align='middle' style={{ overflow: 'hidden', height: '100vh' }}>
       <Col xs={0} lg={12}>
         <Card style={{
           backgroundColor: 'green',
           borderRadius: '40px',
           position: 'absolute',
-          transform: 'rotate(30deg) translate(-200px, 150px)',
+          transform: 'rotate(30deg) translateX(-200px)',
           width: '700px',
           height: '700px',
+          overflow: 'hidden',
+
           // zIndex: 10,
         }}
         />
         <Card style={{
           backgroundColor: 'red',
           borderRadius: '40px',
-          transform: 'rotate(30deg) translate(-350px, 70px)',
+          transform: 'rotate(30deg) translate(-350px, -50px)',
           position: 'absolute',
           width: '700px',
           height: '700px',
@@ -46,13 +48,29 @@ const LoginPage: React.FC = () => {
 
         }}
         />
-        <Image
-          preview={false}
-          src={PetroImage}
-          alt='PetroImage'
-          width='800px'
-          height='100vh'
+        <Card
+          cover={(
+            <Image
+              preview={false}
+              src={personnelImg}
+              alt='Petro Personnel'
+              width='320px'
+              height='360px'
+              style={{ border: '10px solid yellow' }}
+            />
+)}
+          style={{
+            transform: 'translateX(50%)',
+            width: '320px',
+            height: '360px',
+            backgroundColor: 'yellow',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            opacity: 0.5,
+            textAlign: 'center',
+          }}
         />
+
       </Col>
       <Col xs={24} lg={12}>
         <Row justify='center' align='middle'>
