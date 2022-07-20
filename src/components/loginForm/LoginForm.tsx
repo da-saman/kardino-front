@@ -56,6 +56,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         />
         <Input
           errorClassName='ant-form-item-has-error mb-1'
+          containerClassName='mb-3'
           control={control as any}
           name='password'
           placeholder='Password'
@@ -78,7 +79,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           <Button
             type='primary'
             htmlType='submit'
-            className='w-100'
+            block
             loading={isSubmitting}
             disabled={!isValid}
           >
