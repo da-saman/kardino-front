@@ -9,6 +9,7 @@ import { SubmitHandler } from 'react-hook-form';
 import { LoginRequest } from '@models/auth';
 import { loginRequest } from '@api/auth/requests';
 import { useNavigate } from 'react-router-dom';
+import { CardStyled } from '@components/card/Card.style';
 
 const { Title } = Typography;
 
@@ -25,29 +26,8 @@ const LoginPage: React.FC = () => {
   return (
     <Row justify='center' align='middle' style={{ overflow: 'hidden', height: '100vh' }}>
       <Col xs={0} lg={12}>
-        <Card style={{
-          backgroundColor: 'green',
-          borderRadius: '40px',
-          position: 'absolute',
-          transform: 'rotate(30deg) translateX(-200px)',
-          width: '700px',
-          height: '700px',
-          overflow: 'hidden',
-
-          // zIndex: 10,
-        }}
-        />
-        <Card style={{
-          backgroundColor: 'red',
-          borderRadius: '40px',
-          transform: 'rotate(30deg) translate(-350px, -50px)',
-          position: 'absolute',
-          width: '700px',
-          height: '700px',
-          // zIndex: 1,
-
-        }}
-        />
+        <CardStyled style={{ transform: 'rotate(30deg) translateX(-200px)', backgroundColor: 'red' }} />
+        <CardStyled style={{ transform: 'rotate(30deg) translate(-350px, -50px)', backgroundColor: 'green' }} />
         <Card
           cover={(
             <Image
@@ -72,7 +52,7 @@ const LoginPage: React.FC = () => {
         />
 
       </Col>
-      <Col xs={24} lg={12}>
+      <Col xs={16} lg={12}>
         <Row justify='center' align='middle'>
           <Col xs={20} lg={12}>
             <Logo isResponsive />
