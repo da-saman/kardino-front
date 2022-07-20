@@ -17,10 +17,10 @@ interface Props {
   error?: string | false
   Icon?: FunctionComponent
   type?: InputType
-  containerClassName?: string
-  errorClassName?: string
   label?: string
   options?: MappedOption[]
+  errorClassName:string
+  containerClassName:string
   changeHandler?: () => void
   loading?: boolean
   disabled?: boolean
@@ -33,9 +33,9 @@ const Input: React.FC<Props> = ({
   placeholder,
   error,
   Icon,
-  containerClassName = '',
-  errorClassName = '',
   label,
+  errorClassName,
+  containerClassName,
   options = [],
   changeHandler = () => undefined,
   loading = false,

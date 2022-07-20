@@ -43,7 +43,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         }}
         onFinish={handleSubmit(onSubmit)}
         autoComplete='off'
-     >
+      >
         <Input
           errorClassName='ant-form-item-has-error mb-1'
           containerClassName='mb-3'
