@@ -46,7 +46,7 @@ const LoginPage: React.FC = () => {
             backgroundColor: 'yellow',
             borderRadius: '8px',
             overflow: 'hidden',
-            opacity: 0.5,
+            opacity: 0.9,
             textAlign: 'center',
           }}
         />
