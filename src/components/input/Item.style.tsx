@@ -17,10 +17,10 @@ margin: 0;
 
 .ant-form-item-label>label {
       font-size: 10px;
+      color: ${(props) => (props.validateStatus === 'error') && 'red'};
  }
  
  .ant-form-item-explain-error{
       font-size: 10px;
 }
-
 `;
