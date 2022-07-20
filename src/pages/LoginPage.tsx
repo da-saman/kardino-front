@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Typography, Row, Col, Image, Card,
+  Typography, Row, Col, Image, Card, Layout,
 } from 'antd';
 import LoginForm from '@components/loginForm';
 import Logo from '@components/Logo';
@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { CardStyled } from '@components/card/Card.style';
 
 const { Title } = Typography;
+const { Footer } = Layout;
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -60,6 +61,12 @@ const LoginPage: React.FC = () => {
               Kardino Maintenance System
             </Title>
             <LoginForm onSubmit={onSubmitLogin} isSubmitting={loading} />
+            <Footer className='footer text-center'>
+              ©2022 Kardino Maintenance System
+              <br />
+              All Rights Reserved | Designed & Develope by
+              <span style={{ color: 'green' }}> kahroba Tavan</span>
+            </Footer>
           </Col>
         </Row>
       </Col>
