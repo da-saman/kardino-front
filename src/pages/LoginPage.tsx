@@ -23,8 +23,8 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Row className='h-100'>
-      <Col xs={0} lg={12} className='h-inherit'>
+    <Row justify='center' align='middle'>
+      <Col xs={0} lg={12}>
         <Image
           preview={false}
           src={PetroImage}
@@ -33,11 +33,11 @@ const LoginPage: React.FC = () => {
           height='100vh'
         />
       </Col>
-      <Col xs={24} lg={12} className='h-inherit'>
-        <Row className='h-inherit' justify='center' align='middle'>
-          <Col xs={20} sm={16} lg={12}>
+      <Col xs={24} lg={12}>
+        <Row justify='center' align='middle'>
+          <Col xs={20} lg={12}>
             <Logo isResponsive />
-            <Title level={3} className='mv-6 mv-xs-3 text-xs-center'>
+            <Title level={3} className='mv-3 text-center'>
               Kardino Maintenance System
             </Title>
             <LoginForm onSubmit={onSubmitLogin} isSubmitting={loading} />

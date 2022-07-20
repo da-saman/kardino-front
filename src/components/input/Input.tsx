@@ -116,7 +116,7 @@ const Input: React.FC<Props> = ({
                   onFocus={() => setFocus(true)}
                   onBlurCapture={() => setFocus(false)}
                   type={type}
-                  prefix={!!Icon && !isFocused ? <Icon /> : <span />}
+                  prefix={!!Icon && <Icon />}
                   placeholder={placeholder}
                   {...field}
                   onChange={(e) => {
