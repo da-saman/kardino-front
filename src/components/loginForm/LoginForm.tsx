@@ -10,6 +10,7 @@ import { LoginRequest } from '@models/auth';
 import loginSchema from '@utils/schemas/loginSchema';
 import Input from '@components/input';
 import { Link } from 'react-router-dom';
+import { ItemStyled as Item } from '@components/input/Item.style';
 
 interface Props {
   onSubmit: SubmitHandler<LoginRequest>
@@ -53,8 +54,6 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
               ورود به حساب کاربری
             </Title>
             <Input
-              errorClassName='ant-form-item-has-error'
-              containerClassName='mb-1'
               control={control as any}
               label='نام کاربری'
               name='userName'
@@ -63,8 +62,6 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
               error={errors.userName?.message}
             />
             <Input
-              errorClassName='ant-form-item-has-error'
-              containerClassName='mb-1'
               control={control as any}
               label='رمز عبور'
               name='password'
@@ -73,12 +70,12 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
               type={InputType.PASSWORD}
               error={errors.password?.message}
             />
-            <Form.Item>
-              <Link to='/dashboard'>
+            <Item>
+              <Link to='/dashboard' className='forgot-password'>
                 فراموشی رمز عبور
               </Link>
-            </Form.Item>
-            <Form.Item>
+            </Item>
+            <Item>
               <Button
                 type='primary'
                 htmlType='submit'
@@ -88,7 +85,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
               >
                 ورود
               </Button>
-            </Form.Item>
+            </Item>
           </Col>
         </Card>
         <p>

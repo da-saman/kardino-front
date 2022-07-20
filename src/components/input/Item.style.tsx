@@ -2,6 +2,13 @@ import { Form } from 'antd';
 import styled from 'styled-components';
 
 export const ItemStyled = styled(Form.Item)`
+margin: 0;
+
+.ant-form-item-control-input-content {
+      text-align: left;
+      font-size: 10px;
+}
+
 .ant-form-item-label {
       padding: 0;
       margin: 0;

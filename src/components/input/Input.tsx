@@ -19,8 +19,6 @@ interface Props {
   type?: InputType
   label?: string
   options?: MappedOption[]
-  errorClassName:string
-  containerClassName:string
   changeHandler?: () => void
   loading?: boolean
   disabled?: boolean
@@ -34,8 +32,8 @@ const Input: React.FC<Props> = ({
   error,
   Icon,
   label,
-  errorClassName,
-  containerClassName,
+  // errorClassName,
+  // containerClassName,
   options = [],
   changeHandler = () => undefined,
   loading = false,
@@ -45,7 +43,6 @@ const Input: React.FC<Props> = ({
   return (
     <Item
       label={label}
-      className={error ? errorClassName : containerClassName}
       validateStatus={error ? 'error' : 'success'}
       help={error || ' '}
     >
