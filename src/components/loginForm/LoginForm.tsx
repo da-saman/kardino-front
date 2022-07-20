@@ -44,16 +44,17 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         onFinish={handleSubmit(onSubmit)}
         autoComplete='off'
       >
+
         <Input
           errorClassName='ant-form-item-has-error mb-1'
           containerClassName='mb-3'
           control={control as any}
-          name='email'
-          placeholder='Email'
+          name='username'
+          placeholder='Username'
           Icon={UserOutlined}
-          type={InputType.EMAIL}
-          error={errors.email?.message}
+          error={errors.username?.message}
         />
+
         <Input
           errorClassName='ant-form-item-has-error mb-1'
           containerClassName='mb-3'
