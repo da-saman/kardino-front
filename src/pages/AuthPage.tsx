@@ -13,7 +13,7 @@ const AuthPage: React.FC = () => (
     <Col xs={0} md={0} lg={12}>
       <HeroSection />
     </Col>
-    <Col md={22} lg={12}>
+    <Col xs={24} md={20} lg={12}>
       <Logo isResponsive />
       <Title level={3} className='mv-3 text-center'>
         Kardino Maintenance System
