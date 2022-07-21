@@ -2,13 +2,13 @@ import React from 'react';
 import {
   Routes, Route, Navigate,
 } from 'react-router-dom';
-import LoginPage from '@pages/LoginPage';
+import AuthPage from '@pages/AuthPage';
 import DashboardPage from '@pages/DashboardPage';
 import Dashboard from '@components/dashboard';
 
 const App = () => (
   <Routes>
-    <Route path='/login' element={<LoginPage />} />
+    <Route path='/login' element={<AuthPage />} />
     <Route path='/dashboard' element={<DashboardPage />}>
       <Route index element={<Dashboard />} />
       <Route path='users' element={<p>user</p>} />

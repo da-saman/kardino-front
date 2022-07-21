@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Card, Form, ConfigProvider, Col, Typography,
+  Button, Form, ConfigProvider, Typography,
 } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -39,59 +39,48 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     <ConfigProvider direction='rtl'>
       <Form
         name='login'
-        labelCol={{
-          span: 24,
-        }}
         initialValues={{
           remember: true,
         }}
+        size='large'
         onFinish={handleSubmit(onSubmit)}
-        autoComplete='off'
       >
-        <Card className='card'>
-          <Col>
-            <Title level={5} className='text-center'>
-              ورود به حساب کاربری
-            </Title>
-            <Input
-              control={control as any}
-              label='نام کاربری'
-              name='userName'
-              placeholder='Username'
-              Icon={UserOutlined}
-              error={errors.userName?.message}
-            />
-            <Input
-              control={control as any}
-              label='رمز عبور'
-              name='password'
-              placeholder='Password'
-              Icon={LockOutlined}
-              type={InputType.PASSWORD}
-              error={errors.password?.message}
-            />
-            <Item>
-              <Link to='/dashboard' className='forgot-password'>
-                فراموشی رمز عبور
-              </Link>
-            </Item>
-            <Item>
-              <Button
-                type='primary'
-                htmlType='submit'
-                block
-                loading={isSubmitting}
-                disabled={!isValid}
-              >
-                ورود
-              </Button>
-            </Item>
-          </Col>
-        </Card>
-        <p>
-          {submitCount }
-          to captcha
-        </p>
+        <Title level={5} className='text-center'>
+          ورود به حساب کاربری
+        </Title>
+        <Input
+          control={control as any}
+          label='نام کاربری'
+          name='userName'
+          placeholder='Username'
+          Icon={UserOutlined}
+          error={errors.userName?.message}
+        />
+        <Input
+          control={control as any}
+          label='رمز عبور'
+          name='password'
+          placeholder='Password'
+          Icon={LockOutlined}
+          type={InputType.PASSWORD}
+          error={errors.password?.message}
+        />
+        <Item>
+          <Link to='/dashboard' className='forgot-password'>
+            فراموشی رمز عبور
+          </Link>
+        </Item>
+        <Item>
+          <Button
+            type='primary'
+            htmlType='submit'
+            block
+            loading={isSubmitting}
+            disabled={!isValid}
+          >
+            ورود
+          </Button>
+        </Item>
       </Form>
     </ConfigProvider>
   );

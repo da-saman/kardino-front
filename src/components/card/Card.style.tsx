@@ -2,10 +2,6 @@ import { Card } from 'antd';
 import styled from 'styled-components';
 
 export const CardStyled = styled(Card)`
-background-color: ${(props) => props.style?.borderBlockColor};
-border-radius: 40px;
-position: absolute;
-width: 700px;
-height: 700px;
-overflow: hidden;
+  box-shadow: 0px 16px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
 `;

@@ -42,6 +42,7 @@ const Input: React.FC<Props> = ({
   const [isFocused, setFocus] = useState(false);
   return (
     <Item
+      labelCol={{ span: 24 }}
       label={label}
       validateStatus={error ? 'error' : 'success'}
       help={error || ' '}

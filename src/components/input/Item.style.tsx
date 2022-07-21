@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const ItemStyled = styled(Form.Item)`
 margin: 0;
+padding: 0 2rem;
 
 .ant-form-item-control-input-content {
       text-align: left;
@@ -11,7 +12,6 @@ margin: 0;
 
 .ant-form-item-label {
       padding: 0;
-      margin: 0;
       text-align: right;
 }
 
