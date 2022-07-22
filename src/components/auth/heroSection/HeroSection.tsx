@@ -6,8 +6,8 @@ import { ImageContainerStlyled } from '@components/auth/heroSection/ImageContain
 
 const HeroSection = () => (
   <Row justify='center' align='middle' className='h-inherit'>
-    <HeroCard backgroundColor='rgba(139, 194, 64, 0.2);' top='-30rem' right='12rem' />
-    <HeroCard backgroundColor='rgb(139, 194, 64)' top='-40rem' right='20rem' />
+    <HeroCard backgroundColor='rgba(139, 194, 64, 0.2);' top='-20rem' right='12rem' />
+    <HeroCard backgroundColor='rgb(139, 194, 64)' top='-30rem' right='20rem' />
     <ImageContainerStlyled>
       <Image
         preview={false}
