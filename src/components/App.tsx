@@ -10,11 +10,10 @@ const App = () => (
   <Routes>
     <Route path='/login' element={<AuthPage />} />
     <Route path='/dashboard' element={<DashboardPage />}>
-      <Route index element={<Dashboard />} />
       <Route path='users' element={<p>user</p>} />
       <Route path='companies' element={<p>companies</p>} />
     </Route>
-    <Route path='*' element={<Navigate to='login' />} />
+    {/* <Route path='*' element={<Navigate to='login' />} /> */}
   </Routes>
 );
 

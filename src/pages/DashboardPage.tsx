@@ -4,7 +4,7 @@ import Header from '@components/header';
 import PageLayout from '@components/PageLayout';
 import Sidebar from '@components/sidebar';
 import { adminMenu } from '@components/menus';
-import { Outlet } from 'react-router-dom';
+import TabBar from '../TabBar';
 
 // todo why nested layout
 
@@ -15,8 +15,8 @@ const DashboardPage = () => (
     <Layout>
       <PageLayout>
         <Row className='h-100'>
-          <Col xs={0} lg={6} className='h-inherit'>
-            <Outlet />
+          <Col xs={24} className='h-inherit'>
+            <TabBar />
           </Col>
         </Row>
       </PageLayout>
