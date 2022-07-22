@@ -17,13 +17,15 @@ interface Props {
   isSubmitting: boolean
 }
 
-const { Title, Link: AntLink } = Typography;
+const { Title } = Typography;
+
+// TODO: remove any type for controls
 
 const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
   const {
     handleSubmit,
     control,
-    formState: { errors, isValid, submitCount },
+    formState: { errors, isValid },
   } = useForm<LoginRequest>({
     resolver: yupResolver(loginSchema),
     mode: 'all',
@@ -66,7 +68,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           error={errors.password?.message}
         />
         <Item>
-          <Link to='/dashboard' className='forgot-password'>
+          <Link to='/dashboard'>
             فراموشی رمز عبور
           </Link>
         </Item>

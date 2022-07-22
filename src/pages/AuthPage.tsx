@@ -1,10 +1,10 @@
 import React from 'react';
 import { Row, Col, Typography } from 'antd';
-import LoginSection from '@components/loginSection';
+import LoginSection from '@components/auth/loginSection';
 import Logo from '@components/Logo';
 import { PageFooterStyled } from '@components/footer/PageFooter.style';
-import { CardStyled as Card } from '@components/card/Card.style';
-import HeroSection from '@components/heroSection/HeroSection';
+import AuthCard from '@components/auth/authCard';
+import HeroSection from '@components/auth/heroSection';
 
 const { Title } = Typography;
 
@@ -20,9 +20,9 @@ const AuthPage: React.FC = () => (
       </Title>
       <Row justify='center' align='middle' className='h-inherit'>
         <Col span={16}>
-          <Card>
+          <AuthCard>
             <LoginSection />
-          </Card>
+          </AuthCard>
         </Col>
       </Row>
       <PageFooterStyled>
