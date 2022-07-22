@@ -19,8 +19,6 @@ interface Props {
   type?: InputType
   label?: string
   options?: MappedOption[]
-  errorClassName:string
-  containerClassName:string
   changeHandler?: () => void
   loading?: boolean
   disabled?: boolean
@@ -34,8 +32,8 @@ const Input: React.FC<Props> = ({
   error,
   Icon,
   label,
-  errorClassName,
-  containerClassName,
+  // errorClassName,
+  // containerClassName,
   options = [],
   changeHandler = () => undefined,
   loading = false,
@@ -44,8 +42,8 @@ const Input: React.FC<Props> = ({
   const [isFocused, setFocus] = useState(false);
   return (
     <Item
+      labelCol={{ span: 24 }}
       label={label}
-      className={error ? errorClassName : containerClassName}
       validateStatus={error ? 'error' : 'success'}
       help={error || ' '}
     >
@@ -116,7 +114,7 @@ const Input: React.FC<Props> = ({
                   onFocus={() => setFocus(true)}
                   onBlurCapture={() => setFocus(false)}
                   type={type}
-                  prefix={!!Icon && !isFocused ? <Icon /> : <span />}
+                  prefix={!!Icon && <Icon />}
                   placeholder={placeholder}
                   {...field}
                   onChange={(e) => {

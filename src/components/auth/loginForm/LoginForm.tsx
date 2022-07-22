@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Checkbox, Form, ConfigProvider, Row, Col,
+  Button, Form, ConfigProvider, Typography,
 } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -9,17 +9,23 @@ import { InputType } from '@constants/InputType';
 import { LoginRequest } from '@models/auth';
 import loginSchema from '@utils/schemas/loginSchema';
 import Input from '@components/input';
+import { Link } from 'react-router-dom';
+import { ItemStyled as Item } from '@components/input/Item.style';
 
 interface Props {
   onSubmit: SubmitHandler<LoginRequest>
   isSubmitting: boolean
 }
 
+const { Title } = Typography;
+
+// TODO: remove any type for controls
+
 const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
   const {
     handleSubmit,
     control,
-    formState: { errors, isValid, submitCount },
+    formState: { errors, isValid },
   } = useForm<LoginRequest>({
     resolver: yupResolver(loginSchema),
     mode: 'all',
@@ -35,47 +41,38 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     <ConfigProvider direction='rtl'>
       <Form
         name='login'
-        labelCol={{
-          span: 24,
-        }}
         initialValues={{
           remember: true,
         }}
+        size='large'
         onFinish={handleSubmit(onSubmit)}
-        autoComplete='off'
       >
+        <Title level={5} className='text-center'>
+          ورود به حساب کاربری
+        </Title>
         <Input
-          errorClassName='ant-form-item-has-error mb-1'
-          containerClassName='mb-3'
           control={control as any}
-          name='email'
-          placeholder='Email'
+          label='نام کاربری'
+          name='userName'
+          placeholder='Username'
           Icon={UserOutlined}
-          type={InputType.EMAIL}
-          error={errors.email?.message}
+          error={errors.userName?.message}
         />
         <Input
-          errorClassName='ant-form-item-has-error mb-1'
-          containerClassName='mb-3'
           control={control as any}
+          label='رمز عبور'
           name='password'
           placeholder='Password'
           Icon={LockOutlined}
           type={InputType.PASSWORD}
           error={errors.password?.message}
         />
-
-        <Form.Item name='remember' valuePropName='checked'>
-          <Checkbox>
-            من را به خاطر بسپار
-          </Checkbox>
-        </Form.Item>
-
-        <Form.Item>
-          <p>
-            {submitCount }
-            to captcha
-          </p>
+        <Item>
+          <Link to='/dashboard'>
+            فراموشی رمز عبور
+          </Link>
+        </Item>
+        <Item>
           <Button
             type='primary'
             htmlType='submit'
@@ -85,7 +82,7 @@ const LoginForm: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           >
             ورود
           </Button>
-        </Form.Item>
+        </Item>
       </Form>
     </ConfigProvider>
   );
