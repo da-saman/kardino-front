@@ -1,20 +1,20 @@
 import React from 'react';
-import { Image, Row, Col } from 'antd';
+import { Image, Row } from 'antd';
 import personnelImg from '@assets/images/HassanHoseini.webp';
-import { StyledDiv } from './StyledDiv';
-import { ImageContainerStlyled } from './ImageContainerStlyled';
+import { HeroCard } from '@components/heroSection/HeroCard';
+import { ImageContainerStlyled as HeroImageContainer } from '@components/heroSection/ImageContainerStlyled';
 
 const HeroSection = () => (
   <Row justify='center' align='middle' className='h-inherit'>
-    <StyledDiv backgroundColor='blue' top='-30rem' right='12rem' />
-    <StyledDiv backgroundColor='green' top='-40rem' right='20rem' />
-    <ImageContainerStlyled>
+    <HeroCard backgroundColor='rgba(139, 194, 64, 0.2);' top='-30rem' right='12rem' />
+    <HeroCard backgroundColor='rgb(139, 194, 64)' top='-40rem' right='20rem' />
+    <HeroImageContainer>
       <Image
         preview={false}
         src={personnelImg}
         alt='Petro Personnel'
       />
-    </ImageContainerStlyled>
+    </HeroImageContainer>
   </Row>
 );
 

@@ -5,9 +5,10 @@ position: absolute;
 top: -12rem;
 right: 12rem;
 width:calc(40vh + 5%);
-border-radius: 40px;
+border: 8px solid rgba(255, 255, 255, 0.5);
+border-radius: 8px;
 
-img {
-  border: 8px solid rgba(152, 76, 239, 0.5);
+.ant-image-img {
+  border-radius: 8px;
 }
 `;

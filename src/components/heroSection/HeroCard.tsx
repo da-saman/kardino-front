@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-type StyledDivProps = {backgroundColor: string; top: string; right: string}
+type HeroCardProps = {backgroundColor: string; top: string; right: string}
 
-export const StyledDiv = styled.div.attrs((props: StyledDivProps) => props)`
+export const HeroCard = styled.div.attrs((props: HeroCardProps) => props)`
 background-color: ${(props) => props.backgroundColor};
 position: absolute;
 top: calc(5vh + ${(props) => props.top});
