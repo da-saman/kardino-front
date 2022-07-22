@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { Tabs } from 'antd';
 import {
-  useNavigate, Outlet, useLocation,
+  useNavigate, Outlet, useLocation, Location,
 } from 'react-router-dom';
+import { DownSquareOutlined } from '@ant-design/icons';
+import Card from '@components/auth/authCard';
 
-type tabType = {
-    title: string;
-    path: string;
-    content: string;
-    key: string;
+type PaneType = {
+  title: string;
+  path: string;
+  content: string;
+  key: string;
 }
 
 const { TabPane } = Tabs;
 
-const openTabs: tabType[] = [
+const initialPanes = [
   {
-    title: 'Tab 1', path: 'Tab1', content: 'Content of Tab 1', key: '1',
+    title: 'Tab1', path: 'Tab1', content: 'Content of Tab 1', key: '1',
   },
-  {
-    title: 'Tab 2', path: 'Tab2', content: 'Content of Tab 2', key: '2',
-  },
-  {
-    title: 'Tab 3', path: 'Tab3', content: 'Content of Tab 3', key: '3',
-  },
+
+];
+
+const menuItems = [
   {
     title: 'users', path: 'users', content: 'Content of Tab 4', key: '4',
   },
@@ -35,88 +35,82 @@ const TabBar: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [tabs, setTabs] = React.useState(openTabs);
-  const [activeKey, setActiveKey] = React.useState('1');
+  const [activeKey, setActiveKey] = React.useState(initialPanes[0].key || '');
+  const [panes, setPanes] = React.useState(initialPanes);
 
-  const newTabIndex = React.useRef(0);
+  useEffect(() => {
+    const { pathname } = location;
+    const activeMenuItem = menuItems.find((menuItem) => `/dashboard/${menuItem.path}` === pathname);
+    const menuItemIsActive = panes.some((menuItem) => `/dashboard/${menuItem.path}` === pathname);
 
-  // const openedTab = openTabs.filter((tab) => `/dashboard/${tab.path}` === location.pathname);
+    if (activeMenuItem) setActiveKey(activeMenuItem.key);
+    if (!menuItemIsActive && activeMenuItem) setPanes((prevState) => [...prevState, activeMenuItem]);
+  }, [location.pathname]);
 
-  // React.useEffect(() => {
-  //   console.log(openedTab);
-  //   setActiveKey(openedTab[0]?.key);
-  // }, [openedTab, openTabs]);
-
-  const add = () => {
-    const newActiveKey = `newTab${newTabIndex.current + 1}`;
-    setTabs([...tabs, {
-      title: 'New Tab', path: 'NewTab', content: 'New Tab Pane', key: newActiveKey,
-    }]);
+  const onChange = (newActiveKey: string) => {
     setActiveKey(newActiveKey);
+    const activePane = panes.find((pane) => pane.key === newActiveKey);
+    const activePath = activePane?.path || 'login';
+    navigate(activePath);
   };
 
-  const removeTab = (targetKey: string) => {
+  const remove = (targetKey: string) => {
     let newActiveKey = activeKey;
     let lastIndex = -1;
-    tabs.forEach((tab, i) => {
-      if (tab.key === targetKey) {
+    panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
         lastIndex = i - 1;
       }
     });
-    const newTabs = tabs.filter((tab) => tab.key !== targetKey);
-    if (newTabs.length && newActiveKey === targetKey) {
+    const newPanes = panes.filter((pane) => pane.key !== targetKey);
+    if (newPanes.length && newActiveKey === targetKey) {
       if (lastIndex >= 0) {
-        newActiveKey = newTabs[lastIndex].key;
+        newActiveKey = newPanes[lastIndex].key;
       } else {
-        newActiveKey = newTabs[0].key;
+        newActiveKey = newPanes[0].key;
       }
     }
-    setTabs(newTabs);
+    setPanes(newPanes);
     setActiveKey(newActiveKey);
   };
-
-  const onEdit = (targetKey: string, action: 'add' | 'remove') => {
-    if (action === 'add') {
-      add();
-    } else {
-      removeTab(targetKey);
+  const onEdit = (targetKey: string | any, action: 'add' | 'remove') => {
+    if (action === 'remove') {
+      remove(targetKey);
     }
   };
 
   const tabClickHandler = (tabKey : string) => {
-    // const [clickedTab] = tabs.filter((tab) => tab.key === tabKey);
-    // setActiveKey(tabKey);
-    // const newActiveTab = clickedTab;
-    // navigate(`./${newActiveTab.title}`);
-    // console.log(newActiveTab);
-  };
-  const onChange = (key: string) => {
-    setActiveKey(key);
+    const clickedTab = panes.filter((tab) => tab.key === tabKey);
+    setActiveKey(tabKey);
+    const [newActiveTab] = clickedTab;
+    navigate(`./${newActiveTab.title}`);
   };
 
   return (
     <Tabs
+      moreIcon={<DownSquareOutlined />}
       type='editable-card'
-      // hideAdd
-      onEdit={onEdit}
-      // defaultActiveKey='0'
-      onChange={onChange}
       activeKey={activeKey}
+      onChange={onChange}
+      onEdit={onEdit}
+      hideAdd
       tabBarStyle={{
         backgroundColor: 'yellow',
-        padding: '0 1rem',
+        padding: '0.5rem 1rem',
       }}
+      animated={{ inkBar: false, tabPane: false }}
       onTabClick={(key) => tabClickHandler(key)}
+      tabBarGutter={10}
     >
-
-      <Outlet />
-
-      {openTabs.map((tab) => (
-        <TabPane tab={tab.title} key={tab.key} closable>
-          {tab.content}
+      {panes.map((pane) => (
+        <TabPane tab={pane.title} key={pane.key}>
+          <Card>
+            <Outlet />
+          </Card>
+          {pane.content}
         </TabPane>
-      ))}
 
+      ))}
     </Tabs>
   );
 };
