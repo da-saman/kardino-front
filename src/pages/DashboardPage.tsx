@@ -6,7 +6,7 @@ import Sidebar from '@components/sidebar';
 import { Outlet } from 'react-router-dom';
 import menuItems from '@components/menus/adminMenu';
 
-import TabBar from '../TabBar';
+import TabBar from '@components/tabbar';
 
 const DashboardPage = () => (
   <Layout>

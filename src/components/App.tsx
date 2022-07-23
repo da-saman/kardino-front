@@ -18,7 +18,7 @@ const App = () => (
       <Route path='planning-maintenance' element={<p>نت برنامه ریزی شده</p>} />
       <Route path='APM' element={<p>APM</p>} />
       <Route path='reports' element={<p>گزارشات</p>} />
-      <Route path='notification' element={<p>اطلاع رسانی</p>} />
+      <Route path='my-notifications' element={<p>اطلاع رسانی</p>} />
       <Route path='setting' element={<p>تنظیمات</p>} />
       <Route path='tasks-management' element={<p>مدیریت کارها</p>} />
     </Route>

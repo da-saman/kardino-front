@@ -23,16 +23,13 @@ const adminMenu: MenuItem[] = [
     key: 'reports',
   },
   {
-    key: 'notification',
+    key: 'myNotifications',
   },
   {
     key: 'setting',
   },
   {
-    key: 'taskManagement',
-  },
-  {
-    key: 'notification',
+    key: 'tasksManagement',
   },
 ];
 

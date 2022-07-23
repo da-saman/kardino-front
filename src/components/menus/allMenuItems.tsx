@@ -55,9 +55,9 @@ export const allMenuItems: Record<string, MenuType> = {
     path: 'reports',
     icon: <SnippetsFilled />,
   },
-  notification: {
+  myNotifications: {
     title: 'اطلاع رسانی',
-    path: 'notification',
+    path: 'my-notifications',
     icon: <BellFilled />,
   },
   setting: {
@@ -65,9 +65,9 @@ export const allMenuItems: Record<string, MenuType> = {
     path: 'setting',
     icon: <SettingFilled />,
   },
-  taskManagement: {
+  tasksManagement: {
     title: 'مدیریت کارها',
-    path: 'task-management',
+    path: 'tasks-management',
     icon: <CheckCircleFilled />,
   },
 };
