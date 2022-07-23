@@ -19,7 +19,8 @@ const Header: React.FC<Props> = ({ name }) => {
         <HeaderAccount
           name={name}
           onLogout={() => {
-            navigate('login', { replace: true });
+            navigate('/login', { replace: true });
+            // localStorage.removeItem('openedTabs');
           }}
         />
       </Row>

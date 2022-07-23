@@ -1,34 +1,25 @@
 import React from 'react';
 import { Menu } from 'antd';
-import MenuItem from '@components/navigation/MenuItem';
-import SubMenu from '@components/navigation/SubMenu';
+// import SubMenu from '@components/navigation/SubMenu';
 import { Link } from 'react-router-dom';
 import { MenuItem as MenuItemType } from '@models/index';
+import { allMenuItems as menuItems } from '@components/menus/allMenuItems';
+
+import { addNewKey } from '@utils/TabStorageService';
 
 interface Props {
-  items: MenuItemType[]
-}
+  items: MenuItemType[]}
 
 const SidebarMenu: React.FC<Props> = ({ items }) => (
   <Menu className='h-100-percent' mode='inline'>
     {items.map((item) => {
-      if (item.items && item.items.length > 0) {
-        return (
-          <SubMenu key={item.key} icon={item.icon} title={item.title}>
-            {item.items.map((it) => (
-              <MenuItem key={it.key}>
-                {it.path
-                  ? <Link to={it.path}>{it.title}</Link>
-                  : it.title}
-              </MenuItem>
-            ))}
-          </SubMenu>
-        );
-      }
+      const menuData = menuItems[item.key];
       return (
-        <MenuItem key={item.key} icon={item.icon}>
-          {item.path ? <Link to={item.path}>{item.title}</Link> : item.title}
-        </MenuItem>
+        <Menu.Item key={item.key} icon={menuData.icon}>
+          {menuData.path
+            ? <Link onClick={() => addNewKey(item.key)} to={menuData.path}>{menuData.title}</Link>
+            : menuData.title}
+        </Menu.Item>
       );
     })}
   </Menu>

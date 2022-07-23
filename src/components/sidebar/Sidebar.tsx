@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sidebar as StyledSidebar } from '@components/sidebar/Sidebar.style';
+import { SidebarStyled } from '@components/sidebar/Sidebar.style';
 import { MenuItem } from '@models/index';
 import SidebarMenu from '@components/sidebar/SidebarMenu';
 
@@ -10,15 +10,15 @@ interface Props {
 }
 
 const Sidebar: React.FC<Props> = ({ menuItems }) => (
-  <StyledSidebar
+  <SidebarStyled
     theme='light'
-    breakpoint='xxl'
+    breakpoint='xs'
     collapsible
     trigger={null}
     width={defaultWidth}
   >
     <SidebarMenu items={menuItems} />
-  </StyledSidebar>
+  </SidebarStyled>
 );
 
 export default Sidebar;
