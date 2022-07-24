@@ -3,7 +3,7 @@ import { Tabs } from 'antd';
 import { DownSquareOutlined } from '@ant-design/icons';
 import * as tabHandlers from '@utils/TabStorageService';
 import { allMenuItems as menuItems } from '@components/menus/allMenuItems';
-
+import { TabsContainerStyled as TabsContainer } from '@components/tabbar/TabsContainer.style';
 import {
   useLocation,
   useNavigate,
@@ -74,32 +74,33 @@ const TabBar = () => {
   };
 
   return (
-    <Tabs
-      activeKey={activeTabKey}
-      size='small'
-      animated={{ inkBar: false, tabPane: false }}
-      hideAdd
-      moreIcon={<DownSquareOutlined />}
-      onEdit={onEdit}
-      onTabClick={(key) => {
-        navigate(menuItems[key].path);
-      }}
-      tabBarStyle={{
-        backgroundColor: 'yellow',
-        padding: '0.5rem 1rem',
-        height: '3rem',
-      }}
-      tabBarGutter={10}
-      type='editable-card'
-    >
-      {(openedTabsKey.length !== 0) && (openedTabsKey.map((tabKey) => (
-        <TabPane
-          tab={menuItems[tabKey]?.title}
-          key={tabKey}
-        />
-      ))
-      )}
-    </Tabs>
+    <TabsContainer className='tabs-container'>
+      <Tabs
+        activeKey={activeTabKey}
+        animated={{ inkBar: false, tabPane: false }}
+        hideAdd
+        moreIcon={<DownSquareOutlined />}
+        onEdit={onEdit}
+        onTabClick={(key) => {
+          navigate(menuItems[key].path);
+        }}
+        tabBarStyle={{
+          backgroundColor: '#FFFFFF',
+          boxShadow: '0px 15px 40px rgba(139, 194, 64, 0.16)',
+          height: '33px',
+        }}
+        tabBarGutter={1}
+        type='editable-card'
+      >
+        {(openedTabsKey.length !== 0) && (openedTabsKey.map((tabKey) => (
+          <TabPane
+            tab={menuItems[tabKey]?.title}
+            key={tabKey}
+          />
+        ))
+        )}
+      </Tabs>
+    </TabsContainer>
   );
 };
 
