@@ -49,14 +49,22 @@ const TabBar = () => {
   }, [location, location.pathname]);
 
   const remove = (targetKey: string) => {
-    const targetKeyIndex = openedTabsKey.indexOf(targetKey);
-    const lastActiveTab = openedTabsKey.at(targetKeyIndex - 1);
-    if (targetKeyIndex === 0) navigate('/panel', { replace: true });
-    if (lastActiveTab && targetKeyIndex > 0) navigate(lastActiveTab, { replace: true });
-
-    const newOpenedTabsKey = openedTabsKey.filter((key) => key !== targetKey);
+    const lsOpenedTabes = tabHandlers.getAllTabsFromls();
+    const newOpenedTabsKey = lsOpenedTabes.filter((key) => key !== targetKey);
     setOpenedTabsKey(newOpenedTabsKey);
     tabHandlers.removeTabFromls(targetKey);
+
+    const lastActiveTab = newOpenedTabsKey.at(-1);
+
+    if (newOpenedTabsKey.length === 0) {
+      navigate('/panel', { replace: true });
+      tabHandlers.removeActiveTabKey();
+      tabHandlers.getAllTabsFromls();
+    }
+    if (lastActiveTab && newOpenedTabsKey.length > 0) {
+      navigate(lastActiveTab, { replace: true });
+      setActiveTabKey(lastActiveTab);
+    }
   };
 
   const onEdit = (targetKey: string | any, action: 'add' | 'remove') => {
