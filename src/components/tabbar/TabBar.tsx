@@ -51,9 +51,8 @@ const TabBar = () => {
   const remove = (targetKey: string) => {
     const targetKeyIndex = openedTabsKey.indexOf(targetKey);
     const lastActiveTab = openedTabsKey.at(targetKeyIndex - 1);
-    if (lastActiveTab) {
-      navigate(lastActiveTab, { replace: true });
-    }
+    if (targetKeyIndex === 0) navigate('/panel', { replace: true });
+    if (lastActiveTab && targetKeyIndex > 0) navigate(lastActiveTab, { replace: true });
 
     const newOpenedTabsKey = openedTabsKey.filter((key) => key !== targetKey);
     setOpenedTabsKey(newOpenedTabsKey);
