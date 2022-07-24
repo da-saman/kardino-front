@@ -70,4 +70,20 @@ export const allMenuItems: Record<string, MenuType> = {
     path: 'tasksManagement',
     icon: <CheckCircleFilled />,
   },
+
+  importedCartable: {
+    title: 'کارتابل وارده',
+    path: 'importedCartable',
+    icon: <CheckCircleFilled />,
+  },
+  exportedCartable: {
+    title: 'کارتابل صادره',
+    path: 'exportedCartable',
+    icon: <CheckCircleFilled />,
+  },
+  myRequests: {
+    title: 'درخواست های من',
+    path: 'myRequests',
+    icon: <CheckCircleFilled />,
+  },
 };

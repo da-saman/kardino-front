@@ -12,6 +12,17 @@ const adminMenu: MenuItem[] = [
   },
   {
     key: 'cartable',
+    items: [
+      {
+        key: 'importedCartable',
+      },
+      {
+        key: 'exportedCartable',
+      },
+      {
+        key: 'myRequests',
+      },
+    ],
   },
   {
     key: 'planningMaintenance',

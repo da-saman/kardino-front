@@ -19,6 +19,9 @@ const App = () => (
       <Route path='myNotifications' element={<p>اطلاع رسانی</p>} />
       <Route path='setting' element={<p>تنظیمات</p>} />
       <Route path='tasksManagement' element={<p>مدیریت کارها</p>} />
+      <Route path='importedCartable' element={<p>کارتابل وارده</p>} />
+      <Route path='exportedCartable' element={<p>کارتابل صادره</p>} />
+      <Route path='myRequests' element={<p>درخواست های من</p>} />
     </Route>
     <Route path='*' element={<Navigate to='login' />} />
   </Routes>
