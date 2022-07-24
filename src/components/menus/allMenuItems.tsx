@@ -27,12 +27,12 @@ export const allMenuItems: Record<string, MenuType> = {
   },
   basicInfos: {
     title: 'اطلاعات پایه',
-    path: 'basic-infos',
+    path: 'basicInfos',
     icon: <CustomerServiceFilled />,
   },
   equipmentManagement: {
     title: 'مدیریت تجهیزات',
-    path: 'equipment-management',
+    path: 'equipmentManagement',
     icon: <ExclamationCircleFilled />,
   },
   cartable: {
@@ -42,7 +42,7 @@ export const allMenuItems: Record<string, MenuType> = {
   },
   planningMaintenance: {
     title: 'نت برنامه ریزی شده ',
-    path: 'planning-maintenance',
+    path: 'planningMaintenance',
     icon: <SafetyCertificateFilled />,
   },
   APM: {
@@ -57,7 +57,7 @@ export const allMenuItems: Record<string, MenuType> = {
   },
   myNotifications: {
     title: 'اطلاع رسانی',
-    path: 'my-notifications',
+    path: 'myNotifications',
     icon: <BellFilled />,
   },
   setting: {
@@ -67,7 +67,7 @@ export const allMenuItems: Record<string, MenuType> = {
   },
   tasksManagement: {
     title: 'مدیریت کارها',
-    path: 'tasks-management',
+    path: 'tasksManagement',
     icon: <CheckCircleFilled />,
   },
 };

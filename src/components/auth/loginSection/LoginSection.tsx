@@ -11,7 +11,7 @@ const LoginSection = () => {
   const onSubmitLogin: SubmitHandler<LoginRequest> = async (data) => {
     setLoading(true);
     loginRequest(data)
-      .then(() => navigate('/dashboard'))
+      .then(() => navigate('/panel'))
       .catch((e) => console.log(e)).finally(() => { setLoading(false); });
   };
 

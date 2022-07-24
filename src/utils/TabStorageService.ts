@@ -1,60 +1,47 @@
-// interface MenuItemMap {
-//   key: string
-//   path?: string
-// }
 
-// export const getOpenedTabs = () => {
-//   const openedTabes = localStorage.getItem('openedTabs');
+export const getlsActiveTabKey = () => {
+  const lsActiveKey = localStorage.getItem('activeKey');
+  if (lsActiveKey) return lsActiveKey;
+  return '';
+};
 
-//   if (openedTabes) {
-//     return JSON.parse(openedTabes);
-//   }
+export const setlsActiveTabKey = (key: string) => {
+  localStorage.setItem('activeKey', key);
+};
 
-//   return [{
-//     key: 'item0',
-//     path: 'dashbard',
+export const removeActiveTabKey = () => {
+  localStorage.removeItem('activeKey');
+};
 
-//   }];
-// };
+export const addNewTabTols = (tabKey:string) => {
+  const ls = localStorage.getItem('savedTabs');
+  const savedTabs: string[] = ls ? JSON.parse(ls) : [];
+  const hasTab = savedTabs.includes(tabKey);
+  if (!hasTab) {
+    savedTabs.push(tabKey);
+    localStorage.setItem('savedTabs', JSON.stringify(savedTabs));
+  }
+};
 
-// export const setOpenedTab = (tab : MenuItemMap) => {
-//   const storedOpenedTabes = localStorage.getItem('openedTabs');
-//   const newTabes = storedOpenedTabes ? JSON.parse(storedOpenedTabes) : [];
-//   newTabes.push(tab);
+export const getAllTabsFromls = ():string[] => {
+  const ls = localStorage.getItem('savedTabs');
+  const savedTabs: string[] = ls ? JSON.parse(ls) : [];
+  if (ls) {
+    return savedTabs;
+  }
+  localStorage.setItem('savedTabs', JSON.stringify(savedTabs));
+  return [];
+};
 
-//   localStorage.setItem('openedTabs', JSON.stringify(newTabes));
-// };
+export const removeTabFromls = (key:string) => {
+  const ls = localStorage.getItem('savedTabs');
+  const savedTabs: string[] = ls ? JSON.parse(ls) : [];
+  const editedTabs = savedTabs.filter((tabKey) => tabKey !== key);
 
-// export const removeStoredTab = (key: string) => {
-//   const openedTabes = localStorage.getItem('openedTabs');
-//   const newTabes = openedTabes ? JSON.parse(openedTabes) : [];
-//   const newOpenedTab = newTabes.filter((tab :MenuItemMap) => tab.key !== key);
+  localStorage.setItem('savedTabs', JSON.stringify(editedTabs));
+};
 
-//   localStorage.setItem('openedTabs', JSON.stringify(newOpenedTab));
-// };
-
-// export const removeStoredTabs = () => {
-//   localStorage.removeItem('openedTabs');
-// };
-
-// export const getOpenedActiveKey = () => {
-//   const storedActiveKey = localStorage.getItem('activeKey');
-
-//   if (storedActiveKey) {
-//     return storedActiveKey;
-//   }
-
-//   return 'item1';
-// };
-
-// export const setOpenedActiveKey = (key: string) => {
-//   localStorage.setItem('activeKey', key);
-// };
-
-// export const removeActiveKey = () => {
-//   localStorage.removeItem('activeKey');
-// };
-
+/*
 export const addNewKey = (key:string) => {
   const ls = localStorage.getItem('savedTabs');
   const savedTabs: string[] = ls ? JSON.parse(ls) : [];
@@ -82,3 +69,4 @@ export const removeTab = (key:string) => {
 
   localStorage.setItem('savedTabs', JSON.stringify(editedTabs));
 };
+*/

@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import { MenuItem as MenuItemType } from '@models/index';
 import { allMenuItems as menuItems } from '@components/menus/allMenuItems';
 
-import { addNewKey } from '@utils/TabStorageService';
-
 interface Props {
   items: MenuItemType[]}
 
@@ -17,7 +15,7 @@ const SidebarMenu: React.FC<Props> = ({ items }) => (
       return (
         <Menu.Item key={item.key} icon={menuData.icon}>
           {menuData.path
-            ? <Link onClick={() => addNewKey(item.key)} to={menuData.path}>{menuData.title}</Link>
+            ? <Link to={menuData.path}>{menuData.title}</Link>
             : menuData.title}
         </Menu.Item>
       );
