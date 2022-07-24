@@ -3,24 +3,24 @@ import { Layout, Col, Row } from 'antd';
 import Header from '@components/header';
 import PageLayout from '@components/PageLayout';
 import Sidebar from '@components/sidebar';
-import { adminMenu } from '@components/menus';
 import { Outlet } from 'react-router-dom';
+import menuItems from '@components/menus/adminMenu';
 
-// todo why nested layout
+import TabBar from '@components/tabbar';
 
 const DashboardPage = () => (
-
   <Layout>
     <Header name='Name' />
     <Layout>
       <PageLayout>
         <Row className='h-100'>
-          <Col xs={0} lg={6} className='h-inherit'>
+          <Col xs={24} className='h-inherit'>
+            <TabBar />
             <Outlet />
           </Col>
         </Row>
       </PageLayout>
-      <Sidebar menuItems={adminMenu} />
+      <Sidebar menuItems={menuItems} />
     </Layout>
   </Layout>
 );

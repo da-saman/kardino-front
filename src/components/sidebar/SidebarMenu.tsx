@@ -1,34 +1,40 @@
 import React from 'react';
 import { Menu } from 'antd';
-import MenuItem from '@components/navigation/MenuItem';
-import SubMenu from '@components/navigation/SubMenu';
+// import SubMenu from '@components/navigation/SubMenu';
 import { Link } from 'react-router-dom';
 import { MenuItem as MenuItemType } from '@models/index';
+import { allMenuItems as menuItems } from '@components/menus/allMenuItems';
 
 interface Props {
-  items: MenuItemType[]
-}
+  items: MenuItemType[]}
 
 const SidebarMenu: React.FC<Props> = ({ items }) => (
-  <Menu className='h-100-percent' mode='inline'>
+  <Menu className='h-100-percent' mode='vertical'>
     {items.map((item) => {
+      const menuData = menuItems[item.key];
       if (item.items && item.items.length > 0) {
         return (
-          <SubMenu key={item.key} icon={item.icon} title={item.title}>
-            {item.items.map((it) => (
-              <MenuItem key={it.key}>
-                {it.path
-                  ? <Link to={it.path}>{it.title}</Link>
-                  : it.title}
-              </MenuItem>
-            ))}
-          </SubMenu>
+          <Menu.SubMenu key={item.key} title={menuData.title}>
+            {item.items.map((it) => {
+              const subMenuData = menuItems[it.key];
+              return (
+                <Menu.Item key={it.key}>
+                  {subMenuData.path
+                    ? <Link to={subMenuData.path}>{subMenuData.title}</Link>
+                    : subMenuData.title}
+                </Menu.Item>
+              );
+            })}
+          </Menu.SubMenu>
         );
       }
+
       return (
-        <MenuItem key={item.key} icon={item.icon}>
-          {item.path ? <Link to={item.path}>{item.title}</Link> : item.title}
-        </MenuItem>
+        <Menu.Item key={item.key} icon={menuData.icon}>
+          {menuData.path
+            ? <Link to={menuData.path}>{menuData.title}</Link>
+            : menuData.title}
+        </Menu.Item>
       );
     })}
   </Menu>

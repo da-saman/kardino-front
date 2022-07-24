@@ -1,9 +1,4 @@
-import { ReactNode } from 'react';
-
-export default interface MenuItem {
-  title: string
-  key: string
-  path?: string
-  icon?: ReactNode
-  items?: MenuItem[]
-};
+export type MenuItem = {
+  key: string,
+  items?: MenuItem[],
+}
