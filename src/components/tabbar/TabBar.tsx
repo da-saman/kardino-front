@@ -49,6 +49,12 @@ const TabBar = () => {
   }, [location, location.pathname]);
 
   const remove = (targetKey: string) => {
+    const targetKeyIndex = openedTabsKey.indexOf(targetKey);
+    const lastActiveTab = openedTabsKey.at(targetKeyIndex - 1);
+    if (lastActiveTab) {
+      navigate(lastActiveTab, { replace: true });
+    }
+
     const newOpenedTabsKey = openedTabsKey.filter((key) => key !== targetKey);
     setOpenedTabsKey(newOpenedTabsKey);
     tabHandlers.removeTabFromls(targetKey);
