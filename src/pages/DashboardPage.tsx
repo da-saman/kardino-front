@@ -1,5 +1,7 @@
 import React from 'react';
-import { Layout, Col, Row } from 'antd';
+import {
+  Layout, Col, Row, ConfigProvider,
+} from 'antd';
 import Header from '@components/header';
 import PageLayout from '@components/PageLayout';
 import Sidebar from '@components/sidebar';
@@ -13,14 +15,19 @@ const DashboardPage = () => (
     <Header name='Name' />
     <Layout>
       <PageLayout>
+
         <Row className='h-100'>
           <Col xs={24} className='h-inherit'>
-            <TabBar />
+            <ConfigProvider direction='rtl'>
+              <TabBar />
+            </ConfigProvider>
             <Outlet />
           </Col>
         </Row>
       </PageLayout>
-      <Sidebar menuItems={menuItems} />
+      <ConfigProvider direction='rtl'>
+        <Sidebar menuItems={menuItems} />
+      </ConfigProvider>
     </Layout>
   </Layout>
 );
